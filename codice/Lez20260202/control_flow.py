@@ -87,35 +87,35 @@
 #         print("Scelta non valida")
 
 
-# import time
+import time
 
-# secret = 94
-
-
-# start = time.time
-
-# for i in range(50001):
-#     print('tentativo', i)
-#     time.sleep(2)
-#     if i == secret:
-#         print(i)
-#         print(f'Il numero segreto è {i}')
-
-# start = time.time()
-
-# for i in range(50001):
-#     print("Tentativo ", i)
-#     time.sleep(0.1)
-#     if i == secret:
-#         print(i)
-#         print(f"Il numero segreto è {i}")
-#         break
-
-# stop = time.time()
-# durata = stop - start
+secret = 94
 
 
-# print(f"Programma teminato in {durata}")
+start = time.time()
 
-# print(f"Programma terminato, l'elaborazione è durata {durata}")
+for i in range(50001):
+    print('tentativo', i)
+    time.sleep(0.1)
+    if i == secret:
+        print(i)
+        print(f'Il numero segreto è {i}')
+
+start = time.time()
+
+for i in range(50001):
+    print("Tentativo ", i)
+    time.sleep(0.1)
+    if i == secret:
+        print(i)
+        print(f"Il numero segreto è {i}")
+        break
+
+stop = time.time()
+durata = stop - start
+
+
+print(f"Programma teminato in {durata}")
+
+print(f"Programma terminato, l'elaborazione è durata {durata}")
 

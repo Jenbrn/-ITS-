@@ -1,0 +1,321 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "Script",
+    "content": "#ISTRUZIONI DDL\n\nUSE its2026;\n\nCREATE TABLE IF NOT EXISTS produsts (\n    product_id INT PRIMARY KEY AUTO_INCREMENT,\n    name VARCHAR(30) NOT NULL,\n    price DECIMAL(6,2) NOT NULL DEFAULT 0.0,\n    category ENUM('abbigliamento', 'casalinghi')\n);\n\nALTER TABLE produsts\nADD COLUMN price_after_vat DECIMAL(6,2) NOT NULL DEFAULT 0.0;\n\n\nDESCRIBE produsts;\n#crud su Db\n# C Create\nINSERT INTO produsts\n VALUE\n(NULL, 'maglia verde', DEFAULT, 'abbigliamento');\n\nINSERT INTO produsts\nVALUES\n(NULL, 'maglia verde', DEFAULT, 'abbigliamento'),\n(NULL, 'maglia rossa', 10, 'abbigliamento');\n\nINSERT into produsts (`name`, price, category)\nVALUES\n('maglia blu', 10, 'abbigliamento');\n\nINSERT into produsts (`name`, category)\nVALUES\n('maglia bucata', 'abbigliamento');\n\n# R read - retrive (select)\nSELECT * FROM\nprodusts;\n\nselect name as Nome, price as Prezzo FROM\nprodusts;\n\nselect name as Nome, price as Prezzo FROM\nprodusts\norder by Prezzo desc, Nome;\n\n#u update (update)\nupdate produsts\nSET\nprice_after_vat = price * 1.22\nwhere\nprice = 0.0;\n\nDELETE FROM produsts\nWHERE product_id = 5;\n\nDELETE from produsts\nWHERE name = 'maglia bucata';\n#like al posto di =\nDELETE from produsts\nWHERE name LIKE '%bucata%';\n#bucata può essere preceduta o seguita da altro\nselect * FROM\nprodusts;",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": null,
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 64,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "fbf199af-6bb2-4656-c215-6d583d6ca9eb"
+                    ]
+                },
+                "currentHeight": 300,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 29
+                        },
+                        "contentStart": 17,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 29,
+                            "length": 214
+                        },
+                        "contentStart": 31,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 243,
+                            "length": 84
+                        },
+                        "contentStart": 245,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 327,
+                            "length": 21
+                        },
+                        "contentStart": 331,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 348,
+                            "length": 101
+                        },
+                        "contentStart": 372,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 449,
+                            "length": 124
+                        },
+                        "contentStart": 451,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 573,
+                            "length": 92
+                        },
+                        "contentStart": 575,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 665,
+                            "length": 84
+                        },
+                        "contentStart": 667,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 749,
+                            "length": 53
+                        },
+                        "contentStart": 779,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 802,
+                            "length": 53
+                        },
+                        "contentStart": 804,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 855,
+                            "length": 80
+                        },
+                        "contentStart": 857,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 935,
+                            "length": 90
+                        },
+                        "contentStart": 956,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1025,
+                            "length": 44
+                        },
+                        "contentStart": 1028,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1069,
+                            "length": 52
+                        },
+                        "contentStart": 1072,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1121,
+                            "length": 69
+                        },
+                        "contentStart": 1143,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 1190,
+                            "length": 72
+                        },
+                        "contentStart": 1239,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "21f843fd-70b7-4474-accd-bae05e2f2b50",
+                    "resultId": "fbf199af-6bb2-4656-c215-6d583d6ca9eb",
+                    "rows": [
+                        {
+                            "0": 1,
+                            "1": "maglia verde",
+                            "2": "5.50",
+                            "3": "abbigliamento",
+                            "4": "6.71"
+                        },
+                        {
+                            "0": 2,
+                            "1": "maglia verde",
+                            "2": "5.50",
+                            "3": "abbigliamento",
+                            "4": "6.71"
+                        },
+                        {
+                            "0": 3,
+                            "1": "maglia rossa",
+                            "2": "10.00",
+                            "3": "abbigliamento",
+                            "4": "12.20"
+                        },
+                        {
+                            "0": 5,
+                            "1": "maglia blu",
+                            "2": "10.00",
+                            "3": "abbigliamento",
+                            "4": "12.20"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "product_id",
+                            "field": "0",
+                            "dataType": {
+                                "type": 4,
+                                "flags": [
+                                    "SIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 10,
+                                "parameterFormatType": "OneOrZero",
+                                "synonyms": [
+                                    "INTEGER",
+                                    "INT4"
+                                ]
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": true
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "price",
+                            "field": "2",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false,
+                            "default": "0.00"
+                        },
+                        {
+                            "title": "category",
+                            "field": "3",
+                            "dataType": {
+                                "type": 43,
+                                "needsQuotes": true
+                            },
+                            "inPK": false,
+                            "nullable": true,
+                            "autoIncrement": false,
+                            "default": null
+                        },
+                        {
+                            "title": "price_after_vat",
+                            "field": "4",
+                            "dataType": {
+                                "type": 10,
+                                "flags": [
+                                    "UNSIGNED",
+                                    "ZEROFILL"
+                                ],
+                                "numericPrecision": 65,
+                                "numericScale": 30,
+                                "parameterFormatType": "TwoOrOneOrZero",
+                                "synonyms": [
+                                    "FIXED",
+                                    "NUMERIC",
+                                    "DEC"
+                                ]
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false,
+                            "default": "0.00"
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 0.465ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "\n#bucata può essere preceduta o seguita da altro\nselect * FROM\nprodusts;",
+                    "updatable": true,
+                    "fullTableName": "produsts"
+                }
+            ]
+        }
+    ]
+}
