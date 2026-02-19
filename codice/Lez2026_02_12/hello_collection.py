@@ -3,7 +3,7 @@
 def analizza(collezione):
     print("#elementi", len(voti))
     print("Tipo del dato", type(voti))
-    # print('metodi disponibili', help(voti))
+    print('metodi disponibili', help(voti))
 
 #list -> mutabile 
 voti = [25, 29,26]
@@ -22,4 +22,3 @@ voti = {
     'c#' : 26,  
 }
 analizza(voti)
-print(voti.keys)
