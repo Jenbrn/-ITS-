@@ -57,12 +57,17 @@ from alimenti
 group by categoria;
 
 #10
-#select count(proteine > 10) as alimenti_pro from alimenti;
+select categoria, count(*) as alimenti_pro from alimenti where proteine > 10 group by categoria;
 #come mai?
 
 select count(*) as alimenti_pro
 from alimenti
 where proteine > 10;
 
-
+select categoria, max(energia) 
+from( select categoria, avg(energia) as energia from alimenti group by categoria)
+as miao 
+group by categoria
+order by energia desc
+limit 1;
 
