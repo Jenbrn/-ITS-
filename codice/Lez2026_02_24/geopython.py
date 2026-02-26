@@ -22,6 +22,8 @@ valori = regioni.values()
 for chiave, valore in regioni.items():
     print(f'La regione {chiave} ha i seguenti comuni capoluogo: {valore}')
 
+#ric che son variabili temp e nome indipendente
 
 for regione, comuni in regioni.items():
     print(f'La regione {regione} ha i seguenti comuni capoluogo: {comuni}')
+

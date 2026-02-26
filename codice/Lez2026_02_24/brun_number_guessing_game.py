@@ -16,8 +16,6 @@ indovinat = False
 
 while not indovinat:
     guessin = int(input('inserisci num tra 1 e 100: '))
-    if guessin < 1 and guessin > 100:
-        print('Non in range, inserisci un numero tra 1 e 100')
     giri += 1
 
     if guessin > numero_num:
@@ -27,3 +25,6 @@ while not indovinat:
     else:
         indovinat = True
         print(f'Hai indovinato in {giri} tetativi') 
+
+
+
