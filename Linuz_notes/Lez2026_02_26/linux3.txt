@@ -1,0 +1,23 @@
+
+user	group	others
+r w x	r w x	r w x
+
+
+r = 2^2 ->4
+w = 2^1 ->2
+x = 2^0 ->1
+\ - = 0
+r--  -> 4--
+-w- -> -2-
+--x -> --1
+7 = rwx
+5 = r-x
+6 = rw-
+4 = r--
+3 = -rx
+
+
+dispari sono di esecuzione
+chmod 7|7|7 file -> assegni tutto a tutti
+chmod 6|4|4 file -> owner rw | g-r | o-r
+chmod 7|5|5 diectory -> owner rwx | g r-x | o r-x(le dir necessitano di x)
