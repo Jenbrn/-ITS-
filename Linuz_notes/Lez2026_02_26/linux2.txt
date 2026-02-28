@@ -1,0 +1,60 @@
+ESERCIZIO 1.2
+
+- Creare un utente emilio;
+- Creare un utente ignazio;
+- Creare un utente ivan;
+- Creare un gruppo interni;
+- Creare un gruppo esterni;
+
+adduser -> creo utente
+sudo addgroup -> creo gruppo
+-------------------------------------
+
+- Assegno
+
+-ignazio e ivan al gruppo interni
+*sudo usermod -aG interni ignazio ivan
+
+-emilio al gruppo esterni
+*sudo usermod -aG esterni emilio
+
+- ignazio vuole creare una sua cartella Documenti (se non c’è
+crearla);
+*mkdir nomecartelle
+*per entrare nella home di un utente se sono nella dir radice:
+cd nomeutente
+--------------------------------------------
+
+PARTE 2
+- All’interno di Documenti creare 3 cartelle:
+*mkdir
+
+pvt
+interni
+esterni
+-----------------------------------------
+
+-pvt → solo Ignazio ha accesso in lettura e scrittura;
+*sudo chmod o-rx pvt
+
+
+-interni → hanno accesso Ignazio e Ivan in lettura e scrittura,
+*sudo chgrp interni interni
+(ivan&ignazio sono in interni e assegno il gruppo interni utenti interni)
+
+-Emilio non può leggere la cartella interni.
+*sudo chmod o-rwx interni
+(tolgo agli altri tutti i permessi)
+------------------------------------------------
+
+-esterni → hanno accesso tutti, in lettura e scrittura
+
+-All’interno di esterni creare un file
+fileEmilio leggibilie e scrivibile solo da Emili
+----------------------------------------------------
+*cd /etc/sudoers.d/
+
+
+userdel'nomeutente'-> eliminare
+
+ricorda adduser e non useradd

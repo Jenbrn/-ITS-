@@ -1,0 +1,68 @@
+Esercizio
+Nella home directory (eventualmente in Documenti) creare
+quattro files:
++ Per il primo file: solo l’utente proprietario può leggere, scrivere,
+eseguire;
+- Per il secondo file: solo l’utente proprietario e il gruppo ristretto
+possono: leggere, scrivere, eseguire;
++ Per il terzo file: solo l’utente proprietario e il gruppo users possono:
+leggere, scrivere, eseguire;
++ Per il quarto file: tutti possono leggere, scrivere eseguire.ils -l
+
+chmod -> cambio permessi
+
+chgrp-> cambio gruppo
+
+chown -> cambio proprietario
+
+a -> all
+-a -> append/aggiungi
+
+
+touch fileuno filedue filetre filequatr
+*credo i file
+
+-------------------------------------
+1
+sudo chmod u=rwx primofile
+*assegno tutti i permessi a user (its-2026)
+
+sudo chmod go= primofile
+*tolgo tutti i permessi agli altri
+go = group other
+
+-------------------------------------
+groups its-user
+*per vedere grouppi presenti
+sudo addgroup -> creo nuovo gruppo
+cat /ets/group -> vedo gruppi esisteri	risnti
+
+------------------------------------
+2
+sudo usermod -aG ristretto its-2026
+*-a aggiungi G senza sostituirele al gruppo
+
+sudo chown its-2026:ristretto secondofile
+sudo chmod ug=rwx secodnofile
+->cambio i permessi a user(u) e group(g) e riassegno
+
+sudo chmod o-r secondfile
+-> cambio i permessi a other(o) -r(scrittura)
+
+-------------------------------------------
+3
+sudo chown its-2026:users terzofile
+oppure
+sudo chgrp users terzofile
+
+-> cambio il gruppo di appartenenza a terzofile
+
+sudo chmod ug+x terzofile
+-> cambio permessi a user(u) e group(g) aggiungendo 
+
+sudo chmod o-x terzofile
+
+-----------------------------------------------
+4
+sudo chmod a=rwx quartofile
+assegna tutto a tutti
