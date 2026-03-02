@@ -15,11 +15,11 @@ import json
 istruzioni_insert = []
 
 #trasformazione e inserimento dati in collezione
-with open('game.json', 'r', encoding='utf-8') as f:
+with open('game.json', 'r', encoding="utf-8") as f:
     games = json.load(f)
     for game in games:
         nome  = str(game.get('Game', 'Nome gioco')).replace("'", "\\'")
-        genere = game.get('Genere', 'Genere').replace("'", "\\'")
+        genere = game.get('Genre', 'Genere').replace("'", "\\'")
         publisher = game.get('Publisher').replace("'", "\\'")
         platform = game.get('Original platform(s)[a]').replace("'", "\\'")
         year = game.get('year', 0)
