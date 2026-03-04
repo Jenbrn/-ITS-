@@ -12,7 +12,6 @@ select nome as 'Game anno 2000',
 year as 'anno'
 from games
 where year = 2000
-group by nome, year
 ;
 
 #4
