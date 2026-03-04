@@ -53,7 +53,7 @@ order by nome;
 #8
 select nome Nome_gioco, `year` Anno
 from games
-where `year` < 2000
+where `year` < 2020
 order by `year` desc;
 
 #9
