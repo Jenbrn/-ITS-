@@ -1,0 +1,28 @@
+
+nome = [] LISTA
+non è eterogenea, elementi ripetibili, indicizzata e based 0
+
+nome = () TUPLA
+immutabile, indicizzata e based 0
+
+nome = {} SET
+una lista mutabile, non ordinata che NON ammette duplicati
+utilizzabile per filtrare doppi e poi riversarla in lista[]
+
+DIZIONARIO
+nome = {
+    "piemonte" : "Torino",
+    "Liguria" : "Genova",
+    "Lombardia" : "Milano",
+    "Lazio" : "Roma"
+}  
+
+
+-dir()
+-.pop()
+-.append()
+
+
+
+
+.connect()

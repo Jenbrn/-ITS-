@@ -75,6 +75,6 @@ for regione in regioni.keys():
     #print(f"La regione {regione} ha i suoi comuni: {regioni[regione]}")
 
 
-    print(f"La regione {regione} ha i seguenticomuni")
+    print(f"La regione {regione} ha i seguenti comuni")
     for comune in regioni.get(regione):
         print(comune)
