@@ -1,0 +1,52 @@
+simmetrica : si cifra e decifra con la stessa chiave. Meno sicuro di c asimmetrica.
+asimmetrica: disaccoppiamento cifratura e decifratura. Cifro con chiave pubblica dell'altra parte, per decriptarle sarà necessaria la chiave privata del 'ricevente'. 
+
+
+SSH : secure shell
+crittografata la fase di log in asimmetrica
+crittografia interna al canale è simmetrica(più leggera)
+
+Scheda host: fa si che solo questo computer possa comunicare con la VM
+
+installazione terminale
+-sudo apt update : aggiorno repo
+-sudo apt install openssh-server : installo un programma, in questo caso openssh-server
+-ps aux : vedo i processi al momento attivi
+-ps aux | grep ssh : cerco un processo nel dettaglio usando grep
+- sudo systemctl satus ssh : chiedo lo status di un servizio
+- sudo systemctl start ssh : avvio il programma
+- sudo systemctl sto ssh : arresto
+- sudo systemctl disable ssh : disabilitato
+sudo systemctl enable ssh
+* preset -> di default 
+* enable se si ha  necessità che si avvii da solo
+*daemon -> = servizio -> d
+
+- sudo netstat -tulpn : statistiche di rete( sudo apt install net-tools)
+- netatat -tulpn
+- ip a : indicazioni su ip della macchina
+
+- ssh its-user@ip
+-------------------------------------
+- ps -elf equivalente ps aux
+- (gnu regular expression)
+- pipe serve a concatenare due comandi
+----------------------------------------
+-uptime : da quanto è attiva la macchina, utenti collegati e carico macchina 
+* quando si supera l'unità x core la macchina è 'carica'
+
+-top : stesse info di ptime ma in maniera interattiva
+
+-htop : top più approfondito
+
+-sudo kill id_processo : utile quando hai un prcesso che sta bloccando tutto
+
+-sudo shutdown -r now : spegni la macchina e riavviala adesso
+----------------------------------------------
+- free -h : info memora dove -h sta x human readble
+- lsblk : partizionamento HD presenti (swap si scrive su questa partizione quando il resto va in sovraccarico)
+- du -sh : spazio occupato da ciascuna cartella
+- sudo du -sh/
+- df -h cartelle del sistema, quanta memoria consumano e ripartita come
+-df -h /* : più dettagliato(ricorsivo)
+* du e df servono a capire quali dir sono sature e perchè
