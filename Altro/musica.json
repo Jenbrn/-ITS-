@@ -1,0 +1,92 @@
+[
+    {
+        "titolo": "Bohemian Rhapsody",
+        "artista": "Queen",
+        "album": "A Night at the Opera",
+        "anno": 1975,
+        "genere": "Rock",
+        "durata_secondi": 354,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Billie Jean",
+        "artista": "Michael Jackson",
+        "album": "Thriller",
+        "anno": 1982,
+        "genere": "Pop",
+        "durata_secondi": 294,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Smells Like Teen Spirit",
+        "artista": "Nirvana",
+        "album": "Nevermind",
+        "anno": 1991,
+        "genere": "Grunge",
+        "durata_secondi": 301,
+        "certificazione": "Oro"
+    },
+    {
+        "titolo": "Hotel California",
+        "artista": "Eagles",
+        "album": "Hotel California",
+        "anno": 1977,
+        "genere": "Rock",
+        "durata_secondi": 391,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Rolling in the Deep",
+        "artista": "Adele",
+        "album": "21",
+        "anno": 2010,
+        "genere": "Soul",
+        "durata_secondi": 228,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Lose Yourself",
+        "artista": "Eminem",
+        "album": "8 Mile Soundtrack",
+        "anno": 2002,
+        "genere": "Hip-Hop",
+        "durata_secondi": 326,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Shape of You",
+        "artista": "Ed Sheeran",
+        "album": "Divide",
+        "anno": 2017,
+        "genere": "Pop",
+        "durata_secondi": 234,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Stairway to Heaven",
+        "artista": "Led Zeppelin",
+        "album": "Led Zeppelin IV",
+        "anno": 1971,
+        "genere": "Rock",
+        "durata_secondi": 482,
+        "certificazione": "Oro"
+    },
+    {
+        "titolo": "Someone Like You",
+        "artista": "Adele",
+        "album": "21",
+        "anno": 2011,
+        "genere": "Soul",
+        "durata_secondi": 285,
+        "certificazione": "Platino"
+    },
+    {
+        "titolo": "Blinding Lights",
+        "artista": "The Weeknd",
+        "album": "After Hours",
+        "anno": 2019,
+        "genere": "Synth-pop",
+        "durata_secondi": 200,
+        "certificazione": "Platino"
+    }
+]
