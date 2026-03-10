@@ -1,0 +1,33 @@
+https://hub.docker.com/_/alpine
+
+docker version
+dockerrun  -rm hello-word\n
+docker imags 
+docker ps -a -> vedo se c'è 
+docker pull alpine:3.19 ->scarica image ufficiale da repo
+docker imageinspect alpine:3.19  | grep -i  digest
+docker imageinspect nginx:lastes --format'{{'id}}
+docker pull nginx:latest
+
+-----------------------------------------------------------
+From python:3.11-slim
+WORKDIR /app
+COPY app.p .
+EXPOSE 9090
+CMD
+
+----------------------------------------
+docker build -t 'nomecartella:1.0 .   creo image
+docker run -d -p 9090:9090 nomeimag:tag  -> avvio container da image
+docker images -> immagini presenti
+curl  -> get
+docker container stop 43bd602bb17d -> fermare container
+docker ps -a -> vedere cont all
+docker rm-> elimini container
+docker rmi-> remove image
+-d -> manda in bacground esecuz( detached mode)
+-p -> mappre la porta(port mapping porta host:porta cont)
+docker ps-q -> slo cont attivi
+
+
+f
