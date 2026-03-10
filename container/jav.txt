@@ -1,5 +1,3 @@
-https://hub.docker.com/_/alpine
-
 docker version
 dockerrun  -rm hello-word\n
 docker imags 
