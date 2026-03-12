@@ -24,4 +24,4 @@ class Triangolo:
 
 
     def __str__(self):
-        return F"Il perimetro di questo triangolo è {self.perimetro()}, la superficie è {self.area()}"
+        return F"Il perimetro di questo triangolo è {self.perimetro()}, la superficie è {self.area()}"  
