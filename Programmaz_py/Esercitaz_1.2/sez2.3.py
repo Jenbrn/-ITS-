@@ -1,6 +1,6 @@
 """
-    Autore: Nome Cognome
-    Data: gg/mm/aaaa
+    Autore: Janice Brun
+    Data: 08/02/2026
     Titolo:
    
     Testo esercizio
