@@ -13,7 +13,7 @@ Scheda host: fa si che solo questo computer possa comunicare con la VM
 installazione terminale
 -sudo apt update : aggiorno repo
 -sudo apt install openssh-server : installo un programma, in questo caso openssh-server
--ps aux : vedo i processi al momento attivi
+-ps aux : vedo i processi al momento attivi(Process Status ) (All U formato - dettagliato - X include processi senza terminale)
 -ps aux | grep ssh : cerco un processo nel dettaglio usando grep
 - sudo systemctl satus ssh : chiedo lo status di un servizio
 - sudo systemctl start ssh : avvio il programma
@@ -21,16 +21,29 @@ installazione terminale
 - sudo systemctl disable ssh : disabilitato
 sudo systemctl enable ssh
 * preset -> di default 
-* enable se si ha  necessità che si avvii da solo(parte all'avvio)
+* enable se si ha  necessità che si avvii da solo
 * daemon -> = servizio -> d
 
 - sudo apt install net-tools
 - sudo netstat -tulpn : statistiche di rete
-- netstat -tulpn
+*   t  →  TCP connections
+    u  →  UDP connections
+    l  →  listening (solo le porte in ascolto)
+    p  →  mostra il PID e il nome del programma
+    n  →  numeric, mostra IP e porte come numeri invece di risolverli in nomi
+verifico se ssh è in ascolto a p22
 - ip a : indicazioni su ip della macchina
+
+*se non mostra ip:
+-sudo ip link set enp0s8 up
+*link-> gestisci link | set 'enp0s8'-> imposta | up -> accendila(attiva scheda r)
+-sudo dhclient enp0s8/sudo dhcpcd enp0s8
+*vai sull'interfaccia enp0s8 e chiedi un IP
+
 -hostname -I ->  alternativa rest solo ip
 
 ENTRO POWERSHELL FUORI VM
+
 - ssh its-user@ip
 
 *- less sshd_config
