@@ -8,6 +8,8 @@ crittografia interna al canale è simmetrica(più leggera)
 
 Scheda host: fa si che solo questo computer possa comunicare con la VM
 
+*AGGIUNGO SCHEDA DI rete
+
 installazione terminale
 -sudo apt update : aggiorno repo
 -sudo apt install openssh-server : installo un programma, in questo caso openssh-server
@@ -19,14 +21,17 @@ installazione terminale
 - sudo systemctl disable ssh : disabilitato
 sudo systemctl enable ssh
 * preset -> di default 
-* enable se si ha  necessità che si avvii da solo
-*daemon -> = servizio -> d
+* enable se si ha  necessità che si avvii da solo(parte all'avvio)
+* daemon -> = servizio -> d
 
-- sudo netstat -tulpn : statistiche di rete( sudo apt install net-tools)
-- netatat -tulpn
+- sudo apt install net-tools
+- sudo netstat -tulpn : statistiche di rete
+- netstat -tulpn
 - ip a : indicazioni su ip della macchina
 
 - ssh its-user@ip
+
+
 -------------------------------------
 - ps -elf equivalente ps aux
 - (gnu regular expression)
