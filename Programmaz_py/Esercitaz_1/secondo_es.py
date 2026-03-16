@@ -30,6 +30,21 @@ while True:
             print('Valore inserito non valido, iserire valore numerico')
             
 
+# numeri = input('Inserire tre valori numerici (a, b, c) separati da virgola, a non può corrisponedere a 0 (premere Q per uscire): ').lower()
+
+# while (numeri) != 'q':
+          
+#      try:
+#         a, b, c = numeri.split(',') 
+#         a, b, c = map(float, (a, b, c))
+#         if a == 0:
+#           print('a non puoò avere valore 0')
+#           continue
+#         break
+        
+#         numeri = input('Reinserire tre valori numerici (a, b, c) separati da virgola, a non può corrisponedere a 0 (premere Q per uscire): ').lower()
+#      except ValueError:
+#             print('Valore inserito non valido, iserire valore numerico')
 
 #creo funzioni per calcolare Delta e risolvere l'equaz in base al delta
 
