@@ -1,0 +1,29 @@
+# Enviroment
+.env
+.env.*
+
+# Virtual Enviroment
+
+venv/
+.venv/
+
+# Python cache
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Log and runtime
+*.log
+instance/
+*.sqlite3
+
+# Docker
+*.env.local
