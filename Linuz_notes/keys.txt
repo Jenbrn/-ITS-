@@ -1,0 +1,28 @@
+-WINDOWS
+servizi -> OpenSSH Authenticationo deve essere abilitato
+
+
+-ssh-keygen
+*genera le chiavi
+-C:\Users\Janice.Brun\.ssh -> cd .\.ssh\
+-dir
+--------copiare chiave pub in modo sicuro---
+*scp(deprecato)-->rsync
+
+-scp + idchiave.pub its-user@192.168.56.101:/home/its-user/Documenti
+*ssh per copiare il file nella mia VM
+
+- cat id_blabla.pub
+
+-its-user@its2026:~/.ssh$ cat /home/its-user/Documenti/id_ed25519.pub >>authorized_keys-
+--------------
+-man rsync -> spostare file
+------------mod-----
+-cd /etc/ssh
+
+-nudo nano sshd_config
+* porte -password Authentication no
+-sudo systemctl reload ssh -> ricarico per aggiornare le modifiche
+-ssh its-user@192.168.56.101 -p2200 
+ * -p gli dici a che porta andare e va sempre inserito
+ -
