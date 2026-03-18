@@ -1,4 +1,5 @@
-*.pyc
 __pychache__/
+*.pyc
 .git
 .env
+.DS_Store

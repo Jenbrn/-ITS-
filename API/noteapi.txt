@@ -1,0 +1,8 @@
+- npm -> node package manager
+-const -> in js dischiaro una costante
+-arrow function -> app.listen(PORT, () => {
+    console.log ("server attivo sulla porta " + PORT);
+});
+-npm install -> crea cartella con dipendenze
+-
+-
