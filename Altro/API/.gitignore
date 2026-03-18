@@ -1,29 +1,49 @@
-# Enviroment
+# Enviroment / variabili di ambiente(JWT secret o DB psw)
 .env
+#varianti interne .env.local/ .env.test
 .env.*
+*.env.local
 
 # Virtual Enviroment
-
 venv/
 .venv/
 
-# Python cache
-
+# Python cache/ricreabili inutili in repo
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
 # Editor / OS files
+#impostazioni IDE
 .vscode/
 .idea/
+#file sys inutili in repo
 .DS_Store
 Thumbs.db
 
-# Log and runtime
+# Log and runtime (possibili dati sensibili)
 *.log
+#convenzione flask per config/db- dati locali e segreti
 instance/
+#inutili atm
 *.sqlite3
+data.db
+*.db
 
-# Docker
+# Docker - può contenere dati sensibili docker
 *.env.local
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Test - Coverage
+.pytest_cache/
+.coverage
+coverage.xml
+
+# Keys and secrets
+*.pem
+*.key

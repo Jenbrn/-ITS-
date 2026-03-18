@@ -59,4 +59,3 @@ const catalogoLibri = [
 ];
 
 export default catalogoLibri
-//

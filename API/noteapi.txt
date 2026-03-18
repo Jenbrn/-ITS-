@@ -4,5 +4,5 @@
     console.log ("server attivo sulla porta " + PORT);
 });
 -npm install -> crea cartella con dipendenze
--
--
+-nodemon -> dipendenza che permette di riavviare il server a ogni modifica
+-var catalogo = catalogoLibri; -> ci permette dei modificare catalogo inserendolo all'interno di una variabile
