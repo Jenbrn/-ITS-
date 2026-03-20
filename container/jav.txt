@@ -28,4 +28,3 @@ docker rmi-> remove image
 docker ps-q -> slo cont attivi
 
 
-f
