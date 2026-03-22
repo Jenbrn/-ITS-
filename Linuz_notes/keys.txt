@@ -1,3 +1,10 @@
+Chiave privata  → sta sul tuo PC Windows, non la condividi mai
+Chiave pubblica → la installi sulla VM, può stare ovunque
+
+La procedura in due passi
+1. Generare la coppia di chiavi — si fa sul tuo PC Windows
+2. Copiare la chiave pubblica sulla VM — così Debian sa riconoscerti
+
 -WINDOWS
 servizi -> OpenSSH Authenticationo deve essere abilitato
 
@@ -9,7 +16,7 @@ servizi -> OpenSSH Authenticationo deve essere abilitato
 --------copiare chiave pub in modo sicuro---
 *scp(deprecato)-->rsync
 
--scp + idchiave.pub its-user@192.168.56.101:/home/its-user/Documenti
+-scp path\id_rsa.pub its-user@192.168.56.101:/home/its-user/Documenti
 *ssh per copiare il file nella mia VM
 
 - cat id_blabla.pub
@@ -18,6 +25,7 @@ servizi -> OpenSSH Authenticationo deve essere abilitato
 --------------
 -man rsync -> spostare file
 ------------mod-----
+HARDENING 
 -cd /etc/ssh
 
 -nudo nano sshd_config
