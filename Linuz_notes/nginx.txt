@@ -1,0 +1,40 @@
+- Modifico file in stc/hosts
+aggiungendo riga
+
+-stesso da windows
+
+credo file di config nginx x sito
+cd /etc/nginx/sites-available
+- sudo nano socrate.local
+
+server {
+listen 80;
+listen [::]:80;
+server_name socrate.local;
+root /var/www socrate.local;
+index index.html;
+location / {
+try_files $uri $uri/ =404;
+}
+}
+
+-creo cartella del sito e file html
+-sudo mkdir /var/www/socrate.local
+-sudo nano /var/www/socrate.local/index.html
+
+es contenuto
+<!DOCTYPE html>
+<html>
+  <head><title>Socrate.local</title></head>
+  <body><h1>Funziona! </h1></body>
+</html>
+
+cd /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/socrate.local
+
+controllo con ls -l
+**socrate.local -> /etc/nginx/sites-available/socrate.local
+
+sudo nginx -t
+sudo systemctl reload nginx
+
