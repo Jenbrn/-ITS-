@@ -53,6 +53,10 @@ select prodotti.nome, fornitori.citta from prodotti join fornitori on prodotti.i
 select prodotti.nome, categorie.nome from prodotti join categorie on prodotti.id_categoria = categorie.id_categoria where prodotti.quantita_stock > 0 and categorie.nome = 'arredamento';
 
 # Mostrare le categorie che hanno almeno un prodotto fornito da un fornitore di 'Torino'.
+select categorie.nome, ( select prodotti.nome, prodotti.id_prodotto from prodotti join fornitori on prodotti.id_fornitore = fornitori.id_fornitore where fornitori.citta = 'Torino') as torino from prodotti;
+
+
+select prodotti.nome, prodotti.id_prodotto from prodotti join fornitori on prodotti.id_fornitore = fornitori.id_fornitore where fornitori.citta = 'Torino';
 # Visualizzare i prodotti (nome) e il fornitore, ma solo se il prezzo è > 200€.
 # Lista completa: Nome Prodotto, Categoria, Fornitore.
 # Trovare i nomi dei fornitori che forniscono prodotti nella categoria 'Elettronica'.
