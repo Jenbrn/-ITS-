@@ -1,6 +1,6 @@
 """
-Autore: Nome Cognome
-Data: gg/mm/aaaa
+Autore: Janice Brun
+Data: 28/03/2026
 Titolo: Terzo esercizio 
     Conversione temperatura: implementare una funzione convertiCF che converta una
     temperatura espressa in gradi Fahrenheit in una temperatura espressa in gradi Celsius.
@@ -49,7 +49,7 @@ def main():
     """Funzione : Richiama la funzionne convertiCF per effettuare il calcolo e ottenere valori
 
        Return : stampa la temperatura inserita e la temperatura a conversione effettuata 
-        """
+    """
     
     convertiCF()
     print(f"La temperatura da te inserita è: {fahr:.3f} F")
