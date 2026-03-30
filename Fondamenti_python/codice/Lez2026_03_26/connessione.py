@@ -12,7 +12,7 @@ class Connessione:
             host = 'localhost',
             user = 'root',
             password = 'root',
-            database = 'magazzino',
+            database = 'magazzino'
             )
 
         if self.db:

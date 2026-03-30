@@ -1,6 +1,6 @@
 """
-Autore: Nome Cognome
-Data: gg/mm/aaaa
+Autore: Janice Brun
+Data: 29/03/2026
 Titolo: Esercizio quattro:
     """
 
