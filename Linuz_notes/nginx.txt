@@ -1,4 +1,5 @@
 - Modifico file in stc/hosts
+SUDO APT INSTALL NGINX
 aggiungendo riga
 
 -stesso da windows

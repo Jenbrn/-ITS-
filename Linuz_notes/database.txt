@@ -1,0 +1,39 @@
+LAMP / LNMP 
+linux- apache/nginx - mysql/mariadb - php
+
+-sudo apt update &&  sudo apt install mardiadb-server
+(concateno i 2 comandi se il primo va a buon fine)
+
+-sudo systemctl status mysql
+
+-sudo mysql -u root -p
+-u (user) -> root -p (password)
+
+-show databases;
+
+-use 'nomedb';
+idem come sql
+-create user 'janice'@'localhost' identified by 'password';
+alt gr + ì x backtick
+- grant all privileges on aca.* to 'janice'@localhost;
+
+-flush privileges
+
+-\q per uscire
+
+-mysql -u its-user -p
+
+ACCESSO
+/etc/mysql/mariadb.conf.d
+
+-sudo netstat -tulpn | grep mariadb(cambio porta ascolto)
+
+-sudo nano 50-server.cnf
+
+modifico porta ascolto
+
+sudo systemctl restart mariadb
+
+dopo install mariad bd path da powershell windows->
+C:\Program Files\MariaDB 12.2\bin
+./mysql -u aca -p -h 'indirizzoip'(-h = host)
