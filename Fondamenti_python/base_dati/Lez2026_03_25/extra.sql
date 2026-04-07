@@ -50,21 +50,33 @@ select prodotti.nome, fornitori.ragione_sociale from prodotti join fornitori on 
 select prodotti.nome, fornitori.ragione_sociale from prodotti join fornitori on prodotti.id_fornitore = fornitori.id_fornitore where quantita_stock = 0;
 
  
-#14 Trovare i prodotti della categoria 'Abbigliamento'
+#14 Trovare i prodotti della categoria 'Arredamento'
 --  con prezzo inferiore a 50€.
+select prodotti.nome, prodotti.prezzo_unitario, categorie.nome from prodotti join categorie on prodotti.id_categoria = categorie.id_categoria where prodotti.prezzo_unitario > 50 order by prodotti.prezzo_unitario asc;
  
 #15 Visualizzare nome prodotto, categoria e prezzo
 --  ordinati per categoria e poi per prezzo decrescente.
+select prodotti.nome, categorie.nome, prodotti.prezzo_unitario from prodotti join categorie on prodotti.id_categoria = categorie.id_categoria order by prodotti.nome;
  
 #16 Mostrare i fornitori che hanno almeno un prodotto
 --  con stock superiore a 100 pezzi.
+select fornitori.ragione_sociale, prodotti.nome, prodotti.quantita_stock from prodotti join fornitori
+on prodotti.id_fornitore = fornitori.id_fornitore 
+where prodotti.quantita_stock > 100;
  
 #17 Elencare nome prodotto e ragione sociale del fornitore
 --  per i prodotti con prezzo tra 100€ e 300€,
 --  ordinati per prezzo crescente.
+select fornitori.ragione_sociale, prodotti.nome, prodotti.prezzo_unitario from prodotti join fornitori 
+on prodotti.id_fornitore = fornitori.id_fornitore 
+where prodotti.prezzo_unitario between 100 and 300
+order by prodotti.prezzo_unitario asc;
  
 #18 Trovare le categorie che NON hanno nessun prodotto associato.
 -- Hint: pensa a quale tipo di JOIN restituisce anche le righe senza corrispondenza.
+ select categorie.nome from categorie left join prodotti
+ on categorie.id_categoria = prodotti.id_categoria
+ where prodotti.nome is null;
  
 #19 Mostrare nome prodotto, nome categoria e ragione sociale fornitore
 --  solo per i prodotti con quantità in stock compresa tra 10 e 50.
@@ -112,3 +124,6 @@ select prodotti.nome, fornitori.ragione_sociale from prodotti join fornitori on 
 --  mostrando posizione, ragione sociale e fatturato,
 --  ordinati dal più alto al più basso.
 -- Hint: usa una subquery o direttamente GROUP BY con ORDER BY.
+#LEFT JOIN — “Mostra tutte le categorie, anche senza prodotti”
+#RIGHT JOIN — “Mostra tutti i fornitori, anche senza prodotti”
+#RIGHT JOIN utile davvero — “Fornitori senza prodotti”

@@ -1,11 +1,12 @@
 docker version
-dockerrun  -rm hello-word\n
+docker run  -rm hello-word -> test docker
 docker imags 
 docker ps -a -> vedo se c'è 
 docker pull alpine:3.19 ->scarica image ufficiale da repo
 docker imageinspect alpine:3.19  | grep -i  digest
 docker imageinspect nginx:lastes --format'{{'id}}
 docker pull nginx:latest
+docker build -t jenbrn/docker-quickstart . -> build nella repo
 
 -----------------------------------------------------------
 From python:3.11-slim
