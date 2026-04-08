@@ -1,0 +1,23 @@
+{
+  "family": "prova-java",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::730335212096:role/LabRole",
+  "containerDefinitions": [
+    {
+      "name": "prova-java",
+      "image": "730335212096.dkr.ecr.us-east-1.amazonaws.com/repo-prova:latest",
+      "portMappings": [{ "containerPort": 9090 }],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/demo-cluster",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
