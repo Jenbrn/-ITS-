@@ -31,6 +31,6 @@ HARDENING
 -nudo nano sshd_config
 * porte -password Authentication no
 -sudo systemctl reload ssh -> ricarico per aggiornare le modifiche
--ssh its-user@192.168.56.101 -p2200 
+-ssh its-user@19.101 -p2200 
  * -p gli dici a che porta andare e va sempre inserito
  -

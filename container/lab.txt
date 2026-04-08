@@ -1,0 +1,66 @@
+1. Configurare AWS CLI  →  autenticarti da terminale
+2. Creare repository ECR  →  il "magazzino" dove vive la tua immagine
+3. Autenticare Docker su ECR  →  dare a Docker il permesso di caricare
+4. Build e Taggare l'immagine  →  rinominarla nel formato che ECR si aspetta
+5. Push dell'immagine su ECR  →  caricamento vero e proprio
+6. Creare il cluster ECS  →  l'ambiente dove girerà il container
+7. Creo Securety group -> definiamo connessioni possibili in entrata e uscita
+8. Creare Task Definition  →  dire ad ECS come avviare il container
+9. Avviare il servizio  
+
+
+1
+    -accesso cli -- aws configure set
+    - aws configure set default.region us-east-1
+    -aws sts get-caller-identity -> verifica
+
+2
+    - aws ecr create-repository --repository-name 'nomerepo' -> creazione registro 
+    - aws ecr delete-repository --repository-name 'nomerepo' --force 
+
+3
+    -aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 12345678910.dkr.ecr.us-east-1.amazonaws.com
+    (ultimo pezzo è = repository URI ) 
+    *aws ecr get-login-password — chiede ad AWS un token di accesso temporaneo
+    *docker login — usa quel token per autenticare Docker sul tuo registry ECR
+
+4
+    -build image su docker -- docker build -t 'nomecont' .
+    -docker tag 'nomecont':latest 12345678910.dkr.ecr.us-east-1.amazonaws.com/'nomerepo':latest
+    *docker tag [immagine locale]  [indirizzo ECR/nome repo ECR]
+
+5
+    -docker push 12345678910.dkr.ecr.us-east-1.amazonaws.com/'nomerepo':latest
+    *dove pushare | nome repo | versione -> il nome che si da all'image su docker serve per indirizare nel push
+
+6
+    -aws ecs create-cluster --cluster-name 'demo-cluster'
+
+7
+    -reupero mio ip
+    -aws ec2 describe-vpcs --query "Vpcs[*].{ID:VpcId,Default:IsDefault}"
+
+    *recupero la mia vpc per creare SG 
+    * ritorna un json
+    [
+    {
+        "ID": "vpc-0c556d434ed77d62a",
+        "Default": true
+    }
+]
+    -aws ec2 create-security-group --group-name sg-containers --description "SG per containers" --vpc-id vpc-0c556d434ed77d62a
+
+    *restituisce un json- se non lo fa
+    *aws ec2 describe-security-groups --filters Name=group-name,Values=sg-containers --query "SecurityGroups[*].GroupId"  
+    * per avere id del sec group
+
+    - aws ec2 authorize-security-group-ingress --group-id <sg-id> --protocol tcp --port 80 --cidr <tuo-ip>/32
+
+8
+
+
+
+
+ecs -task def - monto img
+cluster- 
+-copio public ip dal task definition

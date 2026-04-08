@@ -19,8 +19,8 @@ SCHEDA HOST - ip / dominio / DNS
 * nslookupb 'nomedominio == dig 'nomedominio'
 cat /etc/hosts
 C:\Windows\System32\drivers\etc
-192.168.56.101 janice.brun.local janice 
-192.168.56.101 janice.sito.local janice.local
-192.168.56.101 aca.local
-192.168.56.101 Janice Miaonis
-192.168.56.101 BAU
+192..101 janice.brun.local janice 
+192..101 janice.sito.local janice.local
+192..101 aca.local
+192..101 Janice Miaonis
+192..101 BAU
