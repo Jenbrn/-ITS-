@@ -1,7 +1,7 @@
 """classe biblioteca"""
 
-from libro import Libro
-from libro_dao import tabella_libri
+from Fondamenti_python.base_dati.Lez2026_03_12.libro import Libro
+from Fondamenti_python.base_dati.Lez2026_03_12.libro_dao import tabella_libri
 
 class Biblioteca:
 

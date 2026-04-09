@@ -1,7 +1,7 @@
 """ Modello triangolo"""
 
-from punto import Punto
-from segmento import Segmento
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.punto import Punto
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.segmento import Segmento
 from math import sqrt
 
 class Triangolo:

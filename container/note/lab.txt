@@ -36,8 +36,11 @@
 6
     -aws ecs create-cluster --cluster-name 'demo-cluster'
 
-7
-    -reupero mio ip
+7   
+task 
+-aws ecs register-task-definition --cli-input-json file://task-def.json
+    
+    (-reupero mio ip
     -aws ec2 describe-vpcs --query "Vpcs[*].{ID:VpcId,Default:IsDefault}"
 
     *recupero la mia vpc per creare SG 
@@ -48,6 +51,8 @@
         "Default": true
     }
 ]
+        )
+        
     -aws ec2 create-security-group --group-name sg-containers --description "SG per containers" --vpc-id vpc-0c556d434ed77d62a
 
     *restituisce un json- se non lo fa
@@ -55,10 +60,7 @@
     * per avere id del sec group
 
     - aws ec2 authorize-security-group-ingress --group-id <sg-id> --protocol tcp --port 80 --cidr <tuo-ip>/32
-
-8
-
-
+    
 
 
 ecs -task def - monto img

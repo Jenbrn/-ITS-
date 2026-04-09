@@ -1,7 +1,7 @@
 """GESTIONE RQE HTTP"""
 
 import requests
-from film import Film
+from Fondamenti_python.codice.Marzo.Lez2020_03_23.film import Film
 
 
 URL = "https://raw.githubusercontent.com/maboglia/ProgrammingResources/refs/heads/master/tabelle/film/imdb_top_2000_movies.json"

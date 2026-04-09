@@ -1,4 +1,4 @@
-from connessione import Connessione
+from Fondamenti_python.codice.Marzo.Lez2026_03_26.connessione import Connessione
 
 
 class ProdottoRepo:

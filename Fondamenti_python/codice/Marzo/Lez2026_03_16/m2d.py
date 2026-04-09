@@ -7,7 +7,7 @@
 # print('sono il modulo 2')
 # print(m.addizione(7,8))
 
-from md1 import addizione, main, frutti
+from Fondamenti_python.codice.Marzo.Lez2026_03_16.md1 import addizione, main, frutti
 
 print(__name__)
 

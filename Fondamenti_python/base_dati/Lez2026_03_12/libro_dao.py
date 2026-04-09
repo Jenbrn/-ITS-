@@ -1,7 +1,7 @@
 """IMPORT DAO Data Access Object"""
 
 import mysql.connector
-from libro import Libro
+from Fondamenti_python.base_dati.Lez2026_03_12.libro import Libro
 
 db = mysql.connector.connect(
     host = 'localhost',

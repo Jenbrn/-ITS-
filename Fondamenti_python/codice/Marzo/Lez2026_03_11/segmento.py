@@ -1,7 +1,7 @@
 """Segmento"""
 from math import sqrt, pow
 
-from punto import Punto
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.punto import Punto
 
 class Segmento:
 

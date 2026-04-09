@@ -1,4 +1,4 @@
-from magazzino_service import MagazzinoService
+from Fondamenti_python.codice.Marzo.Lez2026_03_26.magazzino_service import MagazzinoService
 from flask import Flask, jsonify
 
 

@@ -1,4 +1,4 @@
-from prod_repo import ProdottoRepo
+from Fondamenti_python.codice.Marzo.Lez2026_03_26.prod_repo import ProdottoRepo
 
 class MagazzinoService:
 

@@ -4,9 +4,9 @@
 
 #a = punto.Punto
 
-from punto import Punto
-from segmento import Segmento
-from modello_triangolo import Triangolo
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.punto import Punto
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.segmento import Segmento
+from Fondamenti_python.codice.Marzo.Lez2026_03_11.modello_triangolo import Triangolo
 
 A = Punto (2, 2)
 B = Punto (6, 2)
