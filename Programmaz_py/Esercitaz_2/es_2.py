@@ -35,7 +35,7 @@ def main():
 
        return: stampa i risultati della funzione pari_dispari  
     """
-    pari, disp = pari_dispari(1,2,3,4,5,6)
+    pari, disp = pari_dispari(1,0,3,4,5,6)
     print(f"dati i numeri (1,2,3,4,5,6) la somma di tutti i numeri pari sarà = {pari} e il prodotto di tutti i numeri dispari = {disp}")
 
 
