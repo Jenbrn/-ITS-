@@ -1,6 +1,7 @@
 GET /api/v1/libri               ->  endpoint che restituisce intero catalogo dei libri
-GET /api/v1/libri/:id           ->  endpoint che restituisce il libro con id specifico(path variable)
-GET /api/v1/libri/search?titolo=:titolo    -> endpoint per cercare libri per titolo(prerogativa delle get)
+GET /api/v1/libri/:id           ->  endpoint che restituisce il libro con id specifico(path variable) la risorsa è parte del path
+GET /api/v1/libri/search?titolo=:titolo    -> endpoint per cercare libri per titolo(prerogativa delle get) query parameter 
+GET /api/v1/libri/search?titolo=harry+potter&autore=rowling&anno=1997  -> esempio. posso concatenare più parametri con &
 GET /api/v1/libri/generi        -> endpoint che restituisce l'elenco dei generi dei libri in catalogo
 
 POST /api/v1/libri              -> endpoint per aggiungere un nuovo libro
