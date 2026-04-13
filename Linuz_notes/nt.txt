@@ -1,0 +1,8 @@
+ls -lh/la
+
+-host
+-wget https://wordpress.org/latest.zip
+*wget Web Get
+-unzip latest.zip
+(cd /tmp)
+-rm latest.zip

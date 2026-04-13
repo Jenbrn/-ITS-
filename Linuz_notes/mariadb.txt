@@ -1,0 +1,10 @@
+*interazione lc-mysql
+sudo mysql -u root -p
+show database
+CREATE USER 'nome_utente'@'localhost' IDENTIFIED BY 'password_sicura';
+GRANT ALL PRIVILEGES ON nome_database.* TO 'nome_utente'@'localhost'
+mysql -u aca-user -p aca < libri_data.sql
+mysqldump -u aca-user -p aca > aca2_dp.bn.sql
+
+
+

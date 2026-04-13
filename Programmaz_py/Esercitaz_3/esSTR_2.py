@@ -27,7 +27,7 @@ def controllo_val(a):
 def inserimento():
     """
     funzione : Richiede una stringa in input che verrà passata a main
-     dopo aver validato con controllo_val che abbia almeno 2 caratteri
+    dopo aver validato con controllo_val che abbia almeno 2 caratteri
 
     parametri: input : str 
 
