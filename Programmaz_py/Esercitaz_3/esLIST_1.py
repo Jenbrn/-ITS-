@@ -8,7 +8,7 @@ listaOUT=[2,-4,5,6]
 """
 # Dati in input
 
-listaIN = [2, -4 ,5,6,5,5,2]
+listaIN = [2, -4 ,5,6,5,5,2,25,8,-5]
 listaout = []
 
 # Elaborazione

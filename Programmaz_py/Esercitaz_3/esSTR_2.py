@@ -7,7 +7,7 @@ str="PIPPO" NON PALINDROMA
 """
 #Funzione controllo dell'input
 
-def controllo_val(a):
+def controllo_val(a: str) -> str:
     """
     Funzione: Valida che l'input non sia vuoto.Chiede ripetutamente un nuovo 
     input finché la stringa fornita contiene almeno due caratteri.
@@ -24,7 +24,7 @@ def controllo_val(a):
 
 #Funzione per l'inserimento input
 
-def inserimento():
+def inserimento() -> str:
     """
     funzione : Richiede una stringa in input che verrà passata a main
     dopo aver validato con controllo_val che abbia almeno 2 caratteri

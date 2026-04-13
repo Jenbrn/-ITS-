@@ -7,8 +7,8 @@ stringa modificata."""
 
 #Funzioni per la validazione degli input
 
-def contrtollo_posiz(num: int):
-    """Funzione: controlla che l'input sia un numero, che non sia negativo 
+def contrtollo_posiz(num: int) -> int:
+    """Funzione: controlla che l'input sia un numero, che non sia negativo o superiore alla lunghezza della stringa
     e lo convert da str a int
 
     parametri: num : int
@@ -22,12 +22,13 @@ def contrtollo_posiz(num: int):
         numy = input("Inserisci il numero corrispondente alla posizione da del carattere da rimuovere, non una lettera: ")
         prova = numy.replace('-','')
         
-    while int(numy) < 0:
-        numy = input("Il numero si riferisce ad una posizione, non può essere negativo. Inserire nuovamente:  ")
+    while int(numy) < 0 or int(numy) > len(stringa):
+        numy = input("Il numero si riferisce ad una posizione, non può essere negativo o superiore alla lunghezza della stringa. Inserire nuovamente:  ")
+        
     else:
         return int(controllo_val(numy))
 
-def controllo_val(a):
+def controllo_val(a) :
     """
     Funzione: Valida che l'input non sia vuoto.Chiede ripetutamente un nuovo 
     input finché la stringa fornita contiene almeno un carattere.
@@ -39,12 +40,11 @@ def controllo_val(a):
     while len(a) <= 0:
         a = input("L'input deve avere almeno 1 carattere: ")
     else:
-        print(f"hai inserito {a}")
-    return a
+        return a
 
 #Funzione main cpn inserimento input- elaborazione - output
 
-def main():
+def main() -> str:
     """
     Funzione principale del programma
 
@@ -52,6 +52,7 @@ def main():
     da rimuovere, valida entrambi gli input, rimuove il carattere
     alla posizione indicata e stampa il risultato.    
     """
+    global stringa
     str = input("Inserisci una stringa: ")
     stringa = controllo_val(str)
     num_da_validare = input("Inserisci la posizione del carattere da rimuovere: ")
