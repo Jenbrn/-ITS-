@@ -1,0 +1,132 @@
+---------utenti--------------
+
+- root -> admin
+- su -> sunstiture user
+- sudo -> substitute user do
+- adduser -> crei utente e tutte le dir
+- useradd -> crei utente grezzo
+- useradd -d marco -> crea l’utente marco ma con una home directory   personalizzata.
+
+/etc/passwd:contiene utenti di sistema- no password
+/ets/group: tutti i gruppi di sis e membri gruppi
+/etc/Shadow: password cifrate
+
+- passwd -> cambio password
+- userdel Marco -> elimino
+------------gruppi-----------------
+
+- groupadd nome-> crei nuovo gruppo 
+*non posso creare e assegnare
+* organizz utenti | gestire permessi | assegnaz accessi
+* GID -> gruppo ID univoco
+- groups utente -> gruppi di appartenenza
+- groupadd 
+
+----------permessi---------------
+
+* Linux esegue controllo permessi in ordine User->grp->other. al primo match si ferma
+
+- sudo usermod -a -G groupname username -> assegno user a uno o piu group o -aG)
+* -G : secondary group - lista dei gruppi a cui deve appartenere user
+* -g : primary group GID primario utente
+* -a : aggiungi senza sostituire - senza assegni e elimini grp preesistenti
+
+CHMOD
+- chmod permissions filename -> cambio permessi
+
+* + add | - rem | = set and override
+* u : user/owner | g : group | o : other | a : all
+* r : read | w : write | x : execute
+#es
+   chmod o=rwx miaofile -> tutti gli altri possono fare tutto
+   chmod g+x miaofile -> aggiunge execute al gruppo proprietario del file
+   chmod g-r -> tolgo lettura a gr
+   chmod -R g+x miaDir -> ricorsivo
+CHGRP
+- chgrp group filename
+   
+* Cambia gruppo apparteneza  
+#es
+   chgrp tester miaofile
+
+CHOWN
+- chown newuser miaofile
+- chown newuser:newgrp miaofile
+- chown -R newuser miaodir
+
+* cambia proprietario file o eventual anche grp, può essere ricorsivo
+#es
+   chown Janice miaofile
+   chown Janice:tester miaofile
+   chown -R Janice miaofile
+   chown -R Janice:tester miaofile
+
+------Modalità numerica-----
+0 = ---			
+1 = --x
+2 = -w-
+3 = -wx
+4 = r--
+5 = r-x
+6 = rw-
+7 = rwx
+
+	OWNER		GROUP		OTHER
+777	7*rwx		7*rwx		7*rwx
+654	6*rw-		5*r-x		4*r--
+321	3*-wx		2*-w-		1*--x
+
+# Permessi 
+
+- 755 -> dir pubbliche leggibili o script eseguibili
+- 750 -> dir accessibili solo a user e grp
+- 700 -> dir private
+- 644 -> file normali es testi|config|docu
+- 600 -> file privati ssh|password | config sensibili
+
+-------------UMASK-------------
+
+* Mask che toglie permessi partendo dal max default
+* File : 666 | Directory : 777
+* file umask 022 -> -0 U | -2 G | -2 O -> 666 -> 644 rw-r--r--
+* dir umask 022-> 777 -> 755 rwxr-xr-x
+
+# 022 - 027 -077
+
+- umask -> controlla
+- umask numero -> attiva
+
+-------------PERMESSI SPECIALI---------
+
+### SUID (Set User ID) -> bit 4xxx
+* Se un file eseguibile ha SUID viene eseguito con i permessi del proprietario, non utenteche lo lancia
+
+* chmod u+s /percorso/file
+* -rwsr-xr-x 1 root root /usr/bin/passwd 
+si riconosce con la S nella colonna owner
+
+- passwd deve modificare /etc/shadow (access solo root) 
+- con suid un utente può cambiare la propria password
+- fa girare un programma con i permessi del proprietario senza dare    accesso ai dati protetti all'utente
+
+- chmod 4755 file
+
+### SGID (Set Group ID) -> bit 2xxx
+- file eseguibili : permette di eseguirli con i permessi del grp proprietario
+
+- directory : i file nella dir ereditano il gruppo della dir, no nquello dell'utente
+
+- chmod 2755 /shared 
+drwxr-sr-x riconosce per la s nella colonna grooup
+* tutti i file in shared erediteranno il gruppo della dir, non il GID dell'utente che li crea
+
+### STICKY BIT -> bit 1xxx
+- directory condivise
+- in dir condivisa con sticky bit solo il proprietario del file può cancellarlo o rinomin,
+  gli altri hanno solo permesso in scrittura
+
+- chmod +t /percorso/directory
+- chmod 1777 /tmp -> drwxrwxrwx /tmp -> drwxrwxrwt  /tmp
+- chmod -t /percorso/directory -> rimuove 
+si riconosce per la T finale
+

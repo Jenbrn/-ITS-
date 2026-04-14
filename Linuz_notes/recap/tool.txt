@@ -1,0 +1,47 @@
+------------tool-----------
+
+- uptime -> info essenziali stato server
+* load average ->numero di processi in esecuzione o in attesa di CPU.
+* Load ≈ numero di core → sistema OK  
+
+- nproc -> chiede num core cpu  tot disponibili del sistema (fisici o logici)
+- lscpu -> tutte info cpu - achitettura thread chace
+
+- lscpu | grep 'CPU(s)' -> 
+
+CPU(s):                8
+On-line CPU(s) list:   0-7
+NUMA node0 CPU(s):     0-7
+
+Numero totale di CPU logiche disponibili al sistema  
+(= core fisici × thread per core)
+CPU attive e utilizzabili
+CPU appartenenti al nodo NUMA 0
+
+- free -> memoria libera (-h human readable)
+- dmesg -> meg del kernel dall'avvio
+* serve per : problemi di dischi | problemi di driver |problemi di RAM
+problemi di rete | problemi di USB, GPU, PCI| errori del filesystem | errori di I/O
+
+- dmesg | tail -50 -> ultimi msg
+- dmesg | grep -i error -> cerca errori
+- dmesg | grep -iE "error!fail|warn|critical" -> errori seri
+- dmesg | grep -i sda -> err dischi
+- dmesg | grep -i nvme -> err dischi
+- dmesg -T | grep -i error -> timestamp leggibili
+
+* EXT4-fs error -> filesys corrotto rischio perdita dati
+* Hardware Error -> drama
+
+- journalctl -> liv log log da sys e kernel
+* -xe ultimi log con contesto esteso (err)
+* -b -> boot corrente
+* -f log in tempo reale
+* -p err solo mex errore (warning piu alto)
+
+-lsblk -> disp a blocchi con strutt ad albero da usare prima di df 
+- df -> spazio libero e usato su filesyst
+- du -> spazio per directory 
+- smartctl -H-> stato salute smart disco
+- smartctl -a dett compl attributi smart  
+- memtest86+ -> test della ram
