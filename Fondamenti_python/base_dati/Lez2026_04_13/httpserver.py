@@ -10,10 +10,6 @@ db = mysql.connector.connect(
     database = "Chinook"
 )
 
-# @app.get("/studenti")
-# def studenti():
-#     studente = {"nome": "pippo", "eta": 25, "data_nascita": "2000-04-13"}
-#     return studente
 
 @app.get("/artists")
 def artisti():
@@ -28,28 +24,22 @@ def artisti():
 
 @app.get("/albums")
 def album():
-    # cursore = db.cursor(dictionary=True)
     cursore = db.cursor()
 
     query = """
     select 
-	ar.Name, a.Title
+	    ar.Name, a.Title
     from album a
     join artist ar using (ArtistId)
     ;
     """
 
     cursore.execute(query)
-    album = cursore.fetchall()
+    albums = cursore.fetchall()
 
-    return jsonify(album)#miao
-
-
-
-
-
-
+    return albums
 
 
 
 app.run(debug=True, port=5000)
+

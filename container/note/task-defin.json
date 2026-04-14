@@ -1,5 +1,5 @@
 {
-  "family": "prova-java",
+  "family": "demo-nginx",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -7,9 +7,9 @@
   "executionRoleArn": "arn:aws:iam::730335212096:role/LabRole",
   "containerDefinitions": [
     {
-      "name": "prova-java",
-      "image": "730335212096.dkr.ecr.us-east-1.amazonaws.com/repo-prova:latest@sha256:a0f02540012b470708efe16424a4b780500607a303a6bb557be03957cc64da90",
-      "portMappings": [{ "containerPort": 9090 }],
+      "name": "web",
+      "image": "public.ecr.aws/docker/library/nginx:alpine",
+      "portMappings": [{ "containerPort": 80 }],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {

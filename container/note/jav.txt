@@ -27,5 +27,6 @@ docker rmi-> remove image
 -d -> manda in bacground esecuz( detached mode)
 -p -> mappre la porta(port mapping porta host:porta cont)
 docker ps-q -> slo cont attivi
-
+-docker run --memory="512m" --cpus="1.0" mia-api
+*serve a dare delle specifiche su 'hw' al'avvio delcontainer
 

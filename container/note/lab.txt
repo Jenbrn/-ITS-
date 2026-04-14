@@ -4,8 +4,8 @@
 4. Build e Taggare l'immagine  →  rinominarla nel formato che ECR si aspetta
 5. Push dell'immagine su ECR  →  caricamento vero e proprio
 6. Creare il cluster ECS  →  l'ambiente dove girerà il container
+8. Creare Task Definition e service  →  dire ad ECS come avviare il container
 7. Creo Securety group -> definiamo connessioni possibili in entrata e uscita
-8. Creare Task Definition  →  dire ad ECS come avviare il container
 9. Avviare il servizio  
 
 
