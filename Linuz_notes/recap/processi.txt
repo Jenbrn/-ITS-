@@ -1,0 +1,53 @@
+------------processi-------
+- R -> running
+- S -> sleeping in attesa evemto
+- D -> Disk sleep attesa i/o
+- Z -> zombie terminato ma non rimosso
+- T -> stopped 
+- I -> Idle
+
+- ps aux -> processi attivi 
+* pr basso priorità alta
+* ni -> nice value -20 max +19 min
+
+- ps aux | grep nginx/ssh -> ricerca x nome
+- ps -u janice -> solo processi utente janice
+- pstree -> proc ad albero
+- pstree -p -> con pid ( processId)
+- kill -> segnali x comunicare con processo
+- killall nginx -> tutti i processi con un nome
+- pgrep nginx -> trovo PID di un processo x noem
+
+-  nice -n 10 mio_script.sh root può assegnare proprità
+- renice -n 5 -p 1842 -> riassegnazione
+- top -> = ps aux ma ni con valore corrente
+- htop -> versione nuova migliorata di top
+-------------------------------------
+- systemctl -> interazione con systemd -gestione servizi
+- status | start | stop | restart | enable | disable
+- netstat -tulpn | grep 22 -> mostra porte tcp/udp in ascolto e i processi che le stanno usando
+* capire se un servizio è in ascolto
+* diagnostica problemi rete
+* verifica conflitti
+* controlla se c'è qualcosa di sospetto
+* t: tcp u:udp l:porte in ascolto p: PID e nome processo n:indirizzi e porte in form numerico
+
+
+- ssh-keygen -> genera le chiavi su windows
+-scp .\id_rsa.pub its-user@192.20.144.101:/home/its-user
+* scp -> copia sicura
+* file sorgente (.\ nella dir corrente)
+* utente ip macchina remoto + path
+- cat id_rsa.pub >> ~/.ssh/authorized_keys
+* stampa contenuto file id_rsa.pub
+* >> append /aggiungila
+* tilde ovvero la home utente- .ssh - authorizhed key
+
+--------dns
+A NAME = Address Name | CNAME = Canonical Name | MX = Mail Server
+
+---------nginx------------
+
+- sudo nginx -t -> verifica non ci siano configurazioni errate, che i percorsi esistano
+direttive valide, no conflitti , se è ok riacarichi nginx
+- sudo s
