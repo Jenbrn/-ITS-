@@ -40,8 +40,18 @@ problemi di rete | problemi di USB, GPU, PCI| errori del filesystem | errori di 
 * -p err solo mex errore (warning piu alto)
 
 -lsblk -> disp a blocchi con strutt ad albero da usare prima di df 
-- df -> spazio libero e usato su filesyst
+- df -> spazio libero e usato su disco/filesyst
+- df -h -> spazio libero human readable
+* cercare di partizionare in modo da non raggiungere mai il 100% di utilizzo su un disco
+- sudo du -sh /* -> restituisce utilizzo per dir in tempo reale
+* s -> summarize
 - du -> spazio per directory 
 - smartctl -H-> stato salute smart disco
 - smartctl -a dett compl attributi smart  
 - memtest86+ -> test della ram
+
+- at -> programmi dei comandi su base oraria
+- at -l -> elenco job programmati con at
+- crontab -e -> permette di realizzare una tabella con job personalizzati
+- date '+%Y-%m-%d %h:%M' -> ora attuale
+- echo 'contenuto' > $(date '+%Y-%m-%d %h:%M').log 

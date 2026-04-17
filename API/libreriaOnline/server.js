@@ -152,6 +152,8 @@ app.delete(`${BASE_PATH}/libri/:id`, (req, res) => {
     // 
 });
 
+//----------------------------------------CLIENTI------------------------------------//
+
 //clienti get con id
 app.get(`${BASE_PATH}/clienti/:id`, (req, res) => {
     let idParam = parseInt(req.params.id);
@@ -206,7 +208,7 @@ app.delete(`${BASE_PATH}/clienti/:id`, (req, res) => {
     // 
 });
 
-
+//------------------------FUNZIONI--------------------------//
 
 function validaLibro(libro) {
     //controlliamo che il libro esista e che abbia almeno titolo, autore e editore

@@ -58,10 +58,10 @@ def main() -> str:
     num_da_validare = input("Inserisci la posizione del carattere da rimuovere: ")
     numero = contrtollo_posiz(num_da_validare)
 
-    a = stringa[0:numero]
-    b = stringa[(numero + 1):]
-    risultato = a + b
-    print(f"La stringa meno il carattere corrisponde a {risultato}")
+    a = stringa[0:(numero - 1)]
+    b = stringa[(numero):]
+    risultato = a +b
+    print(f"La stringa meno il carattere corrisponde a: {risultato}")
 
 
 if __name__ == "__main__":

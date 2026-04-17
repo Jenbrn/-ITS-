@@ -29,7 +29,7 @@
 - echo 'miao' >> Nome -> crea se non c'è e append
 - ls > output_ls -> esegue ls, reindirizza l'output come contenuto del file output_ls che ha appena creato
 - ls >> output_ls -> idem come sorpa
-- cat Nome -> legge contenuto 
+- cat Nome -> legge contenuto (grep cerca la 'linea' dentro i file)
 - nano Nome -> scrive
 - rm Nome -> cancella file
 

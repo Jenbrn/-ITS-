@@ -4,7 +4,7 @@ Titolo: Scrivi un programma per trovare il secondo numero più piccolo in una li
 """
 # Input
 
-listadis = [2, 6, 18, -2 , 25]
+listadis = [2, 6, 18, -2 , 25, 1]
 
 # Elaborazione
 
@@ -30,3 +30,16 @@ def main():
 if __name__ == '__main__':
     main()
     
+"""
+def miao(a):
+    miao = 0
+    prova = []
+    listinoz = sorted(a)
+    while miao < 2:
+        for n in listinoz:
+            if n < n+1:
+                prova += [n]
+                miao += 1
+        return print(prova)
+
+"""
