@@ -14,3 +14,4 @@ print(F"Argomenti passati allo script: {sys.argv}")
 
 x = [1,2,3]
 print(sys.getsizeof(x))
+"""argv sono i valori che passi in argomento"""

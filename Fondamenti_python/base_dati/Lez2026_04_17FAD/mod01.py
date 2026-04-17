@@ -5,12 +5,12 @@ import os
 print(F"Directoruy corrente: {os.getcwd()}")
 print(F"Contenuto directory: {os.listdir('.')}")
 
-studenti_file = open("studenti.txt", "r", encoding="utf-8", newline='\n')
-lettura = studenti_file.read()
-for riga in lettura.splitlines():
-    os.mkdir(riga.strip())
+# studenti_file = open("studenti.txt", "r", encoding="utf-8", newline='\n')
+# lettura = studenti_file.read()
+# for riga in lettura.splitlines():
+#     os.mkdir(riga.strip())
 
-studenti_file.close()
+# studenti_file.close()
 
 
 # os.mkdir("fatta_in_fad")

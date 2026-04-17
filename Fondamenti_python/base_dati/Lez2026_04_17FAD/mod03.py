@@ -12,4 +12,5 @@ print(adesso.year, adesso.month, adesso.day)
 print(adesso)
 
 fra_20_min = adesso + timedelta(minutes=20)
-print(F"l'intervallo termina alle h : {fra_20_min}")
+# print(F"l'intervallo termina alle h : {fra_20_min}")
+print(adesso.strftime("%d/%m%Y"))
