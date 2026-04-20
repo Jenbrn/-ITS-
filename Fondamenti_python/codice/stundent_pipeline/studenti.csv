@@ -1,0 +1,12 @@
+id,nome,cognome,data_nascita,email,Matematica,Informatica,Italiano
+
+1,Alex,Simonetti,2008-02-12,alex.simonetti@scuola.it,6,4,10
+
+2,Alex,Rosso,2008-10-10,alex.rosso@scuola.it,6,10,7
+
+3,Peppe,Simonetti,2009-09-18,peppe.simonetti@scuola.it,6,2,5
+
+4,Alex,Bianchi,2004-11-13,alex.bianchi@scuola.it,2,9,10
+
+5,Luigi,Rosso,2005-09-19,luigi.rosso@scuola.it,9,6,3
+

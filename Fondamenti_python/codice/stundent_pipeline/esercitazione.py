@@ -1,6 +1,7 @@
 import os, json, random
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
+from pathlib import Path
 
 if not os.path.exists('data'):
     os.mkdir('data')
@@ -54,19 +55,19 @@ def gen_data():
     return data_nascita.strftime("%Y-%m-%d")
 
 def gen_email(nome, cognome):
-    return F"{nome}.{cognome}@scuola.it"
+    return f"{nome.lower()}.{cognome.lower()}@scuola.it"
 
 
 
 
 @dataclass
 class Studente:
-    id = int
-    nome = str
-    cognome = str
-    data_nascita = str
-    email = str
-    voti = dict
+    id: int
+    nome: str
+    cognome: str
+    data_nascita: str
+    email: str
+    voti: dict
 
 def genera_studenti(config):
     studenti = []
@@ -81,9 +82,13 @@ def genera_studenti(config):
             cognome = cognome,
             data_nascita = gen_data(),
             email = gen_email(nome, cognome),
-            voti = genera_voti()
+            voti = genera_voti(config)
         )
 
         studenti.append(asdict(studente))
 
     return studenti
+
+# studenti = genera_studenti(config)
+
+Path("convert_stud_csv.py").touch()
