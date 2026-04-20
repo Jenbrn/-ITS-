@@ -19,25 +19,6 @@ auto = leggi_file_csv("auto.csv")
 for a in auto:
     print(a['Modello'])
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
 
         # marche = [row["Marca"] for row in reader]
