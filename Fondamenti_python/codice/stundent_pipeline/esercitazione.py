@@ -14,6 +14,17 @@ if not os.path.exists('data/output'):
 if not os.path.exists('data/backup'):
     os.makedirs('backup', exist_ok=True)
 
+os.makedirs()    
+# base = 'data'
+# subfolders = ['input', 'output', 'backup']
+
+# for fol
+
+
+
+
+
+
 # if not os.path.exists('studenti.py'):
 #     os.makedirs('studenti.py', exist_ok=True)
 
