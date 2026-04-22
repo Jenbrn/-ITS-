@@ -19,7 +19,7 @@ def estrai(studenti):
         new_studente["cognome"] = studente["cognome"]
         new_studente["data_nascita"] = studente["data_nascita"]
         new_studente["email"] = studente["email"]
-       
+        
         voti = studente["voti"]
         for materia, voto in voti.items():
             new_studente[materia] = voto
@@ -36,7 +36,7 @@ def main():
     INPUT_DIR.mkdir(parents=True, exist_ok=True)
     #percorso
     filepath = Path("data/input") / f"studenti_{timestamp}.csv"
-    with open(filepath, newline="", encoding="utf-8") as f:
+    with open(filepath, "w", newline="", encoding="utf-8") as f:
 
         fieldnames = ["id", "nome","cognome","data_nascita","email","Matematica","Informatica","Italiano"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
