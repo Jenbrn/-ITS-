@@ -1,0 +1,9 @@
+{
+"numero_studenti": 5,
+"voto_min": 2,
+"voto_max": 10,
+"materie": ["Matematica", "Informatica", "Italiano"],
+"classe": "5A",
+"nomi": ["Andrea", "Luigi", "Mario", "Alex", "Peppe"],
+"cognomi": ["Rosso", "Sesto", "Bianchi", "Simonetti", "Decaro"]
+}

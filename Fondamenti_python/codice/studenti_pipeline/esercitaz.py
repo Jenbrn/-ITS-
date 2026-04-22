@@ -3,21 +3,15 @@ from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
-if not os.path.exists('data'):
-    os.mkdir('data')
-if not os.path.exists('report'):
-    os.mkdir('report')
-if not os.path.exists('data/input'):
-    os.makedirs('input', exist_ok=True)
-if not os.path.exists('data/output'):
-    os.makedirs('output', exist_ok=True)
-if not os.path.exists('data/backup'):
-    os.makedirs('backup', exist_ok=True)
+#genero struttura dir
+cartelle = ['data/input','data/output','data/backup','report', 'config']
 
+for cartella in cartelle:
+    os.makedirs(cartella, exist_ok=True)
 
-
-if not os.path.exists('config.json'):
-    with open("config.json", "w", encoding="utf-8") as f:
+# step 1 - creazione config.json
+if not os.path.exists('config/config.json'):
+    with open("config/config.json", "w", encoding="utf-8") as f:
         f.write("""{
 "numero_studenti": 5,
 "voto_min": 2,
@@ -29,11 +23,10 @@ if not os.path.exists('config.json'):
 }
 """)
         
-
-with open("config.json", "r", encoding= "utf-8") as f:
+with open("config/config.json", "r", encoding= "utf-8") as f:
     config = json.load(f)
 
-#funz ausiliarie
+# finz ausiliarie
 
 def genera_voti(config):
     voti = {}
@@ -41,7 +34,6 @@ def genera_voti(config):
     for materia in config["materie"]:
         voti[materia] = random.randint(config["voto_min"], config["voto_max"])
     return voti
-
 
 def gen_data():
     data_inizio = datetime(2004, 1, 1)
@@ -56,8 +48,7 @@ def gen_data():
 def gen_email(nome, cognome):
     return f"{nome.lower()}.{cognome.lower()}@scuola.it"
 
-
-
+# creazione studenti random
 
 @dataclass
 class Studente:
@@ -67,7 +58,6 @@ class Studente:
     data_nascita: str
     email: str
     voti: dict
-
 def genera_studenti(config):
     studenti = []
 
@@ -75,6 +65,7 @@ def genera_studenti(config):
         nome = random.choice(config["nomi"])
         cognome = random.choice(config["cognomi"])
 
+        
         studente = Studente(
             id = id_studente,
             nome = nome,
@@ -87,7 +78,5 @@ def genera_studenti(config):
         studenti.append(asdict(studente))
 
     return studenti
-
-# studenti = genera_studenti(config)
 
 Path("convert_stud_csv.py").touch()
