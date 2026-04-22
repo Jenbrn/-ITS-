@@ -6,7 +6,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent
 INPUT_DIR = BASE_DIR / "data" / "input"
 
-
+# step 2
 studenti = genera_studenti(config)
 
 def estrai(studenti):
@@ -28,6 +28,7 @@ def estrai(studenti):
     
     return studenti_new
 
+#step 3
 def main():
     dat = estrai(studenti)
 

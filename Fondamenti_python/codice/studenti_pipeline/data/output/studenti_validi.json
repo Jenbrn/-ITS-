@@ -1,0 +1,52 @@
+[
+    {
+        "id": "1",
+        "nome": "Peppe",
+        "cognome": "Bianchi",
+        "data_nascita": "2004-12-10",
+        "email": "peppe.bianchi@scuola.it",
+        "Matematica": "8",
+        "Informatica": "6",
+        "Italiano": "7"
+    },
+    {
+        "id": "2",
+        "nome": "Mario",
+        "cognome": "Rosso",
+        "data_nascita": "2007-12-29",
+        "email": "mario.rosso@scuola.it",
+        "Matematica": "6",
+        "Informatica": "4",
+        "Italiano": "5"
+    },
+    {
+        "id": "3",
+        "nome": "Alex",
+        "cognome": "Simonetti",
+        "data_nascita": "2009-04-14",
+        "email": "alex.simonetti@scuola.it",
+        "Matematica": "4",
+        "Informatica": "9",
+        "Italiano": "7"
+    },
+    {
+        "id": "4",
+        "nome": "Luigi",
+        "cognome": "Decaro",
+        "data_nascita": "2007-03-14",
+        "email": "luigi.decaro@scuola.it",
+        "Matematica": "3",
+        "Informatica": "3",
+        "Italiano": "9"
+    },
+    {
+        "id": "5",
+        "nome": "Andrea",
+        "cognome": "Decaro",
+        "data_nascita": "2009-09-29",
+        "email": "andrea.decaro@scuola.it",
+        "Matematica": "8",
+        "Informatica": "5",
+        "Italiano": "3"
+    }
+]
