@@ -1,4 +1,4 @@
-from esercitazione import config, genera_studenti
+from Altro.stundent_pipeline.esercitazione import config, genera_studenti
 import csv
 import datetime
 import pathlib
@@ -26,6 +26,8 @@ def estrai(studenti):
 
 def main():
     dat = estrai(studenti)
+
+    #genero timestamp
     with open("studenti.csv", "w") as f:
         fieldnames = ["id", "nome","cognome","data_nascita","email","Matematica","Informatica","Italiano"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)

@@ -3,28 +3,32 @@ from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
+
+def config():
 #genero struttura dir
-cartelle = ['data/input','data/output','data/backup','report', 'config']
 
-for cartella in cartelle:
-    os.makedirs(cartella, exist_ok=True)
+    cartelle = ['data/input','data/output','data/backup','report', 'config']
 
-# step 1 - creazione config.json
-if not os.path.exists('config/config.json'):
-    with open("config/config.json", "w", encoding="utf-8") as f:
-        f.write("""{
-"numero_studenti": 5,
-"voto_min": 2,
-"voto_max": 10,
-"materie": ["Matematica", "Informatica", "Italiano"],
-"classe": "5A",
-"nomi": ["Andrea", "Luigi", "Mario", "Alex", "Peppe"],
-"cognomi": ["Rosso", "Sesto", "Bianchi", "Simonetti", "Decaro"]
-}
-""")
-        
-with open("config/config.json", "r", encoding= "utf-8") as f:
-    config = json.load(f)
+    for cartella in cartelle:
+        os.makedirs(cartella, exist_ok=True)
+
+    # step 1 - creazione config.json
+    if not os.path.exists('config/config.json'):
+        with open("config/config.json", "w", encoding="utf-8") as f:
+            f.write("""{
+    "numero_studenti": 30,
+    "voto_min": 2,
+    "voto_max": 10,
+    "materie": ["Matematica", "Informatica", "Italiano"],
+    "classe": "5A",
+    "nomi": ["Andrea", "Stefano", "Olga", "Sara", "Chiara", "Marco", "Michele", "Alessandro", "Matteo", "Tommaso", "Luigi", "Mario", "Alex", "Peppe", "Carlo", "Ivan"],
+    "cognomi": ["Rosso", "Sesto", "Bianchi", "Simonetti", "Decaro", "Vanetti", "Sacco", "Timo", "Ronco", "Micheli", "Fulgori", "Gallo", "Rossi", "Verdi", "Neri", "Ferrari"]
+    }
+    """)
+            
+    with open("config/config.json", "r", encoding= "utf-8") as f:
+        config = json.load(f)
+    return config
 
 # finz ausiliarie
 
@@ -79,4 +83,4 @@ def genera_studenti(config):
 
     return studenti
 
-Path("convert_stud_csv.py").touch()
+# Path("convert_stud_csv.py").touch()
