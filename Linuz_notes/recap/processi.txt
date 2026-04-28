@@ -51,3 +51,20 @@ A NAME = Address Name | CNAME = Canonical Name | MX = Mail Server
 - sudo nginx -t -> verifica non ci siano configurazioni errate, che i percorsi esistano
 direttive valide, no conflitti , se è ok riacarichi nginx
 - sudo s
+
+-------------------------------
+
+- sudo apt install iptables -> install iptable  
+
+- sudo iptables -P INPUT DROP -> blocco connessioni in entrata
+
+*abilito ping | ssh | hhtp | https
+- sudo iptables -A INPUT -i lo -j ACCEPT -> llopback
+- sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT -> ssh 
+- sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT -> http 
+- sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT -> https 
+- sudo iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT -> loopback
+- iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT -> stateful
+- sudo iptables -L INPUT --line-numbers -> vedo policy create
+- sudo iptables -L INPUT -n -v --line-Numbers
+-D INPUT 4

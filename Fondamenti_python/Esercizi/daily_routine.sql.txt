@@ -1,0 +1,289 @@
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 149
+Server version: 8.4.8 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database EsercizioSQL;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> use EsercizioSQL;
+Database changed
+mysql> 
+mysql> create user esercizio_user@localhost identified by 'password123';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> grant all on EsercizioSQL.* to esercizio_user@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> create table Clienti(
+    -> id_cliente int primary key auto_increment,
+    -> nome varchar(50) not null,
+    -> email varchar(100) unique not null
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> 
+mysql> 
+mysql> #creazione tabelle
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create table Prodotti(
+    -> id_prodotto int primary key auto_increment,
+    -> nome varchar(50) not null,
+    -> prezzo decimal(10,2) check (prezzo > 0)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> 
+mysql> create table Ordini(
+    -> id_ordine int primary key auto_increment,
+    -> id_cliente int not null,
+    -> foreign key (id_cliente) references Clienti(id_cliente) on delete cascade,
+    -> id_prodotto int not null,
+    -> foreign key (id_prodotto) references Prodotti(id_prodotto) on delete cascade,
+    -> quantita int not null check (quantita > 0),
+    -> data_ordine datetime default current_timestamp
+    -> 
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> 
+mysql> #--------------------------------------------------------------------------------
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #inserimento
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into Clienti (nome, email)
+    -> values ( 'Alessandrio', 'alessandro.miao@gmail.com' ),
+    -> ('Gianmarco', 'gian.maio@gmail.com');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> insert into Clienti (nome, email)
+    -> values ('Tommaso', 'tommaso.miao@gmail.com'),
+    -> ('Matteo', 'matte.miao@gmail.com');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> insert into Prodotti (nome, prezzo)
+    -> values ('pizza', 4.50), ('acqua', 2.5);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> insert into Ordini (id_cliente, id_prodotto, quantita)
+    -> values (1, 1, 5), (2,2,3);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> insert into Ordini (id_cliente, id_prodotto, quantita)
+    -> values ( 1, 1, 3), (3, 2, 1);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> insert into Prodotti ( nome, prezzo)
+    -> values ('Laptop', 1000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> #-------------------------------------------------------------------------------------
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #lettura
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #query 1
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select Ordini.id_ordine, Clienti.nome, Prodotti.nome from Ordini
+    -> left join Clienti on Ordini.id_cliente = Clienti.id_cliente 
+    -> join Prodotti on Prodotti.id_prodotto = Ordini.id_prodotto;
++-----------+-------------+-------+
+| id_ordine | nome        | nome  |
++-----------+-------------+-------+
+|         1 | Alessandrio | pizza |
+|         3 | Alessandrio | pizza |
+|         2 | Gianmarco   | acqua |
+|         4 | Tommaso     | acqua |
++-----------+-------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> #query 2
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select Clienti.nome, count(*) as tot_ordini
+    -> from Clienti
+    -> join Ordini on Ordini.id_cliente = Clienti.id_cliente
+    -> group by Clienti.nome;
++-------------+------------+
+| nome        | tot_ordini |
++-------------+------------+
+| Alessandrio |          2 |
+| Gianmarco   |          1 |
+| Tommaso     |          1 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #query 3
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select Clienti.nome, Ordini.quantita from Clienti
+    -> join Ordini on Clienti.id_cliente = Ordini.id_cliente where Ordini.quantita > 1
+    -> order by Ordini.quantita desc;
++-------------+----------+
+| nome        | quantita |
++-------------+----------+
+| Alessandrio |        5 |
+| Gianmarco   |        3 |
+| Alessandrio |        3 |
++-------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #query 4
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select Clienti.nome, sum(Prodotti.prezzo * Ordini.quantita) as totale
+    -> from Clienti join Ordini on Clienti.id_cliente = Ordini.id_cliente
+    -> join Prodotti on Ordini.id_prodotto = Prodotti.id_prodotto
+    -> group by Clienti.nome;
++-------------+--------+
+| nome        | totale |
++-------------+--------+
+| Alessandrio |  36.00 |
+| Gianmarco   |   7.50 |
+| Tommaso     |   2.50 |
++-------------+--------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> #-------------------------------------------------------------------------------------------
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #Update e Delete
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #Update 1
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> update Prodotti 
+    -> 	join (select id_prodotto from Prodotti where nome = 'Laptop') as P
+    -> on Prodotti.id_prodotto = P.id_prodotto
+    -> set prezzo = 1300
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> 
+mysql> #Delete 2
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from Clienti
+    -> where nome = 'Gianmarco';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> # Err code 1175, quando provi a fare update o delete senza una primary_key. Necessario usare tavola derivata + subquery per aggirare il problema (come update1)
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> delete Clienti from Clienti
+    -> 	join ( select id_cliente from Clienti where nome = 'Gianmarco') as Cl
+    -> on Clienti.id_cliente = Cl.id_cliente;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #Una volta eseguito correttamente il delete sparisce anche l'ordine associato
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> #Delete 3
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from Ordini
+    -> where id_ordine = 1 ;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> #------------------------------------------------------------------------
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #Vincoli
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into Ordini (id_cliente, id_prodotto, quantita)
+    -> values (1, 2, -5);
+ERROR 3819 (HY000): Check constraint 'ordini_chk_1' is violated.
+mysql> #Impossibile inserire una quantit… in conflitto con i vincoli inseriti nel check
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> #-------------------------------------------------------------------------
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #Eliminazione Dati, Tabelle e DB
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #1
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> truncate Ordini;
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> # or delete from Clienti where id_cliente > 0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> #2
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop table Ordini;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop table Clienti;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> drop table Prodotti;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> 
+mysql> #3
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop user esercizio_user@localhost;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> #4
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> drop database EsercizioSQL;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> notee
