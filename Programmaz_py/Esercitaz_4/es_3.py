@@ -11,6 +11,14 @@ TuplaOUT: ([10, 20, 100], [40, 50, 100], [70, 80, 100])
 
 # Inserimento input
 def inserimento1() -> tuple:
+    """
+    Funzione : Crea 3 liste mediante input dell'utente che vangono aggiunti ad una tupla.
+        L'utente inserisce elementi in ogni lista finché non digita 'miao'.
+        Si una un counter per rendere più semplice l'inserimento per l'utenete
+
+    Return : Tuple
+        Tupla contenente 3 liste di elementi inseriti dall'utente.
+    """
     tupla =()
 
     counter = 0
@@ -28,7 +36,14 @@ def inserimento1() -> tuple:
     return tupla
     
     
-def inserimento2():
+def inserimento2() -> list:
+    """
+    Funzione: Richiede l'inserimento di 3 elementi da sostituire all'ultimo elemento delle
+        liste interne alla tupla
+
+    Return : list
+        Lista coi 3 elementi di sostituzione
+    """
     sostituti = []
 
     for e in range(3):
@@ -37,8 +52,16 @@ def inserimento2():
     return sostituti
 
 # Validazione input
-def validazione(a):
-    
+def validazione(a) -> str:
+    """
+    Funzione: Valida che l'input abbia almeno un carattere
+
+    Argomenti: input utente (str)
+        stringa da validare
+
+    Return : str
+        una stringa validata
+    """
     while len(a) <= 0:
         a = input("non puoi lasciare l'input vuoto: ")
     else:
@@ -46,13 +69,17 @@ def validazione(a):
 
 #Funzione principale con output
 def main() -> tuple:
+    """
+    Sostituisce gli ultimi elementi di ogni lista nella tupla.
+    """
     tupla = inserimento1()
     sost1, sost2, sost3 = inserimento2()
-    for elem in tupla:
-        tupla[0][-1] = sost1
-        tupla[1][-1] = sost2
-        tupla[2][-1] = sost3
+
+    tupla[0][-1] = sost1
+    tupla[1][-1] = sost2
+    tupla[2][-1] = sost3
     print(tupla)
+    return tupla
     
 
 if __name__ == '__main__':
