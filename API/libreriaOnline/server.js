@@ -3,6 +3,8 @@ import express from 'express';
 import catalogoLibri from './model/catalogo.js';
 import clienteFile from './model/clienti.js';
 import bodyParser from 'body-parser';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './doc/swagger.json' with {type: 'json'};
 
 const app = express();
 app.use(bodyParser.json());
@@ -15,6 +17,10 @@ const BASE_PATH = "/api/v1";
 var catalogo = [...catalogoLibri];
 var clienti = [...clienteFile];
 // creo una shallow copy dell'array clieni - libri per poterli modificare. prende 
+
+// integrazione swaggerUi per documentazione dell'API
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 
 // avvio il server
 app.listen(PORT, () => {

@@ -29,7 +29,7 @@ moto_sopra_10k["Valore_IVA"] = moto_sopra_10k["Prezzo (€)"] * moto_sopra_10k["
 # veioli.to_html("veicoli.html")
 # veioli.to_excel("veicoli.xlsx")
 
-matplotlib.pyplot.show()
+# matplotlib.pyplot.show()
 
 #??
 

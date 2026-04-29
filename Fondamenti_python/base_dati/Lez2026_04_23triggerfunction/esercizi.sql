@@ -1,20 +1,17 @@
 create database EsercizioSQL;
 
+use EsercizioSQL;
+
 create user esercizio_user@localhost identified by 'password123';
 
 grant all on EsercizioSQL.* to esercizio_user@localhost;
-
-use EsercizioSQL;
 
 create table Clienti(
 id_cliente int primary key auto_increment,
 nome varchar(50) not null,
 email varchar(100) unique not null
 );
-drop table Clienti;
-drop database EsercizioSQL;
-drop user esercizio_user@localhost;
-use EsercizioSQL;
+
 
 #creazione tabelle
 create table Prodotti(
@@ -41,11 +38,18 @@ insert into Clienti (nome, email)
 values ( 'Alessandrio', 'alessandro.miao@gmail.com' ),
 ('Gianmarco', 'gian.maio@gmail.com');
 
+insert into Clienti (nome, email)
+values ('Tommaso', 'tommaso.miao@gmail.com'),
+('Matteo', 'matte.miao@gmail.com');
+
 insert into Prodotti (nome, prezzo)
 values ('pizza', 4.50), ('acqua', 2.5);
 
 insert into Ordini (id_cliente, id_prodotto, quantita)
 values (1, 1, 5), (2,2,3);
+
+insert into Ordini (id_cliente, id_prodotto, quantita)
+values ( 1, 1, 3), (3, 2, 1);
 
 insert into Prodotti ( nome, prezzo)
 values ('Laptop', 1000);
@@ -77,25 +81,47 @@ group by Clienti.nome;
 #-------------------------------------------------------------------------------------------
 #Update e Delete
 #Update 1
-update Prodotti
+update Prodotti 
+	join (select id_prodotto from Prodotti where nome = 'Laptop') as P
+on Prodotti.id_prodotto = P.id_prodotto
 set prezzo = 1300
-where id_prodotto = ( select id_prodotto from Prodotti where nome = 'Laptop') 
-
 ;
 
+#Delete 2
+delete from Clienti
+where nome = 'Gianmarco';
+# Err code 1175, quando provi a fare update o delete senza una primary_key. Necessario usare tavola derivata + subquery per aggirare il problema (come update1)
 
+delete Clienti from Clienti
+	join ( select id_cliente from Clienti where nome = 'Gianmarco') as Cl
+on Clienti.id_cliente = Cl.id_cliente;
+#Una volta eseguito correttamente il delete sparisce anche l'ordine associato
 
+#Delete 3
+delete from Ordini
+where id_ordine = 1 ;
 
+#------------------------------------------------------------------------
+#Vincoli
+insert into Ordini (id_cliente, id_prodotto, quantita)
+values (1, 2, -5);
+#Impossibile inserire una quantità in conflitto con i vincoli inseriti nel check
 
+#-------------------------------------------------------------------------
+#Eliminazione Dati, Tabelle e DB
+#1
+truncate Ordini;
+# or delete from Clienti where id_cliente > 0;
+#2
+drop table Ordini;
+drop table Clienti;
+drop table Prodotti;
 
+#3
+drop user esercizio_user@localhost;
 
-
-
-
-
-
-
-
+#4
+drop database EsercizioSQL;
 
 
 
