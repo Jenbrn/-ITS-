@@ -1,52 +1,302 @@
 [
     {
         "id": "1",
-        "nome": "Peppe",
-        "cognome": "Bianchi",
-        "data_nascita": "2004-12-10",
-        "email": "peppe.bianchi@scuola.it",
+        "nome": "Stefano",
+        "cognome": "Rosso",
+        "data_nascita": "2007-05-25",
+        "email": "stefano.rosso@scuola.it",
         "Matematica": "8",
-        "Informatica": "6",
-        "Italiano": "7"
+        "Informatica": "7",
+        "Italiano": "4"
     },
     {
         "id": "2",
-        "nome": "Mario",
-        "cognome": "Rosso",
-        "data_nascita": "2007-12-29",
-        "email": "mario.rosso@scuola.it",
+        "nome": "Ivan",
+        "cognome": "Rossi",
+        "data_nascita": "2006-11-01",
+        "email": "ivan.rossi@scuola.it",
         "Matematica": "6",
-        "Informatica": "4",
+        "Informatica": "8",
         "Italiano": "5"
     },
     {
         "id": "3",
-        "nome": "Alex",
-        "cognome": "Simonetti",
-        "data_nascita": "2009-04-14",
-        "email": "alex.simonetti@scuola.it",
-        "Matematica": "4",
-        "Informatica": "9",
-        "Italiano": "7"
+        "nome": "Matteo",
+        "cognome": "Ronco",
+        "data_nascita": "2007-12-11",
+        "email": "matteo.ronco@scuola.it",
+        "Matematica": "10",
+        "Informatica": "2",
+        "Italiano": "6"
     },
     {
         "id": "4",
+        "nome": "Carlo",
+        "cognome": "Rossi",
+        "data_nascita": "2004-03-29",
+        "email": "carlo.rossi@scuola.it",
+        "Matematica": "6",
+        "Informatica": "5",
+        "Italiano": "7"
+    },
+    {
+        "id": "5",
+        "nome": "Alex",
+        "cognome": "Simonetti",
+        "data_nascita": "2006-05-22",
+        "email": "alex.simonetti@scuola.it",
+        "Matematica": "10",
+        "Informatica": "4",
+        "Italiano": "5"
+    },
+    {
+        "id": "6",
         "nome": "Luigi",
-        "cognome": "Decaro",
-        "data_nascita": "2007-03-14",
-        "email": "luigi.decaro@scuola.it",
+        "cognome": "Gallo",
+        "data_nascita": "2004-10-17",
+        "email": "luigi.gallo@scuola.it",
+        "Matematica": "2",
+        "Informatica": "8",
+        "Italiano": "2"
+    },
+    {
+        "id": "7",
+        "nome": "Mario",
+        "cognome": "Timo",
+        "data_nascita": "2007-07-28",
+        "email": "mario.timo@scuola.it",
         "Matematica": "3",
+        "Informatica": "8",
+        "Italiano": "2"
+    },
+    {
+        "id": "8",
+        "nome": "Stefano",
+        "cognome": "Simonetti",
+        "data_nascita": "2007-04-18",
+        "email": "stefano.simonetti@scuola.it",
+        "Matematica": "5",
+        "Informatica": "7",
+        "Italiano": "2"
+    },
+    {
+        "id": "9",
+        "nome": "Sara",
+        "cognome": "Ferrari",
+        "data_nascita": "2007-10-18",
+        "email": "sara.ferrari@scuola.it",
+        "Matematica": "10",
+        "Informatica": "6",
+        "Italiano": "2"
+    },
+    {
+        "id": "10",
+        "nome": "Marco",
+        "cognome": "Gallo",
+        "data_nascita": "2004-10-26",
+        "email": "marco.gallo@scuola.it",
+        "Matematica": "4",
+        "Informatica": "8",
+        "Italiano": "6"
+    },
+    {
+        "id": "11",
+        "nome": "Sara",
+        "cognome": "Gallo",
+        "data_nascita": "2005-06-29",
+        "email": "sara.gallo@scuola.it",
+        "Matematica": "4",
+        "Informatica": "9",
+        "Italiano": "6"
+    },
+    {
+        "id": "12",
+        "nome": "Matteo",
+        "cognome": "Gallo",
+        "data_nascita": "2006-10-18",
+        "email": "matteo.gallo@scuola.it",
+        "Matematica": "7",
+        "Informatica": "6",
+        "Italiano": "3"
+    },
+    {
+        "id": "13",
+        "nome": "Luigi",
+        "cognome": "Fulgori",
+        "data_nascita": "2008-07-02",
+        "email": "luigi.fulgori@scuola.it",
+        "Matematica": "8",
+        "Informatica": "5",
+        "Italiano": "4"
+    },
+    {
+        "id": "14",
+        "nome": "Peppe",
+        "cognome": "Decaro",
+        "data_nascita": "2008-06-19",
+        "email": "peppe.decaro@scuola.it",
+        "Matematica": "2",
+        "Informatica": "8",
+        "Italiano": "2"
+    },
+    {
+        "id": "15",
+        "nome": "Alex",
+        "cognome": "Decaro",
+        "data_nascita": "2004-11-21",
+        "email": "alex.decaro@scuola.it",
+        "Matematica": "7",
+        "Informatica": "4",
+        "Italiano": "4"
+    },
+    {
+        "id": "16",
+        "nome": "Michele",
+        "cognome": "Gallo",
+        "data_nascita": "2009-03-30",
+        "email": "michele.gallo@scuola.it",
+        "Matematica": "4",
+        "Informatica": "6",
+        "Italiano": "10"
+    },
+    {
+        "id": "17",
+        "nome": "Tommaso",
+        "cognome": "Sesto",
+        "data_nascita": "2004-06-15",
+        "email": "tommaso.sesto@scuola.it",
+        "Matematica": "3",
+        "Informatica": "3",
+        "Italiano": "6"
+    },
+    {
+        "id": "18",
+        "nome": "Alex",
+        "cognome": "Ronco",
+        "data_nascita": "2009-10-13",
+        "email": "alex.ronco@scuola.it",
+        "Matematica": "3",
+        "Informatica": "8",
+        "Italiano": "7"
+    },
+    {
+        "id": "19",
+        "nome": "Olga",
+        "cognome": "Decaro",
+        "data_nascita": "2005-02-05",
+        "email": "olga.decaro@scuola.it",
+        "Matematica": "2",
+        "Informatica": "8",
+        "Italiano": "2"
+    },
+    {
+        "id": "20",
+        "nome": "Luigi",
+        "cognome": "Rosso",
+        "data_nascita": "2009-09-09",
+        "email": "luigi.rosso@scuola.it",
+        "Matematica": "2",
+        "Informatica": "9",
+        "Italiano": "5"
+    },
+    {
+        "id": "21",
+        "nome": "Ivan",
+        "cognome": "Bianchi",
+        "data_nascita": "2009-05-22",
+        "email": "ivan.bianchi@scuola.it",
+        "Matematica": "4",
+        "Informatica": "2",
+        "Italiano": "5"
+    },
+    {
+        "id": "22",
+        "nome": "Matteo",
+        "cognome": "Timo",
+        "data_nascita": "2005-08-11",
+        "email": "matteo.timo@scuola.it",
+        "Matematica": "2",
+        "Informatica": "2",
+        "Italiano": "5"
+    },
+    {
+        "id": "23",
+        "nome": "Marco",
+        "cognome": "Ferrari",
+        "data_nascita": "2004-08-22",
+        "email": "marco.ferrari@scuola.it",
+        "Matematica": "2",
+        "Informatica": "6",
+        "Italiano": "8"
+    },
+    {
+        "id": "24",
+        "nome": "Tommaso",
+        "cognome": "Timo",
+        "data_nascita": "2005-05-14",
+        "email": "tommaso.timo@scuola.it",
+        "Matematica": "8",
+        "Informatica": "2",
+        "Italiano": "5"
+    },
+    {
+        "id": "25",
+        "nome": "Carlo",
+        "cognome": "Gallo",
+        "data_nascita": "2004-03-23",
+        "email": "carlo.gallo@scuola.it",
+        "Matematica": "4",
+        "Informatica": "9",
+        "Italiano": "6"
+    },
+    {
+        "id": "26",
+        "nome": "Carlo",
+        "cognome": "Ronco",
+        "data_nascita": "2008-08-27",
+        "email": "carlo.ronco@scuola.it",
+        "Matematica": "10",
+        "Informatica": "4",
+        "Italiano": "9"
+    },
+    {
+        "id": "27",
+        "nome": "Tommaso",
+        "cognome": "Ronco",
+        "data_nascita": "2007-12-30",
+        "email": "tommaso.ronco@scuola.it",
+        "Matematica": "9",
         "Informatica": "3",
         "Italiano": "9"
     },
     {
-        "id": "5",
-        "nome": "Andrea",
-        "cognome": "Decaro",
-        "data_nascita": "2009-09-29",
-        "email": "andrea.decaro@scuola.it",
-        "Matematica": "8",
-        "Informatica": "5",
-        "Italiano": "3"
+        "id": "28",
+        "nome": "Peppe",
+        "cognome": "Timo",
+        "data_nascita": "2009-02-22",
+        "email": "peppe.timo@scuola.it",
+        "Matematica": "9",
+        "Informatica": "10",
+        "Italiano": "7"
+    },
+    {
+        "id": "29",
+        "nome": "Matteo",
+        "cognome": "Bianchi",
+        "data_nascita": "2009-06-28",
+        "email": "matteo.bianchi@scuola.it",
+        "Matematica": "6",
+        "Informatica": "6",
+        "Italiano": "4"
+    },
+    {
+        "id": "30",
+        "nome": "Mario",
+        "cognome": "Sesto",
+        "data_nascita": "2005-09-28",
+        "email": "mario.sesto@scuola.it",
+        "Matematica": "5",
+        "Informatica": "10",
+        "Italiano": "9"
     }
 ]

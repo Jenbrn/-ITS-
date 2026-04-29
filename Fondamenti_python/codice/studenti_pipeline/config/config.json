@@ -1,9 +1,10 @@
 {
-"numero_studenti": 5,
-"voto_min": 2,
-"voto_max": 10,
-"materie": ["Matematica", "Informatica", "Italiano"],
-"classe": "5A",
-"nomi": ["Andrea", "Luigi", "Mario", "Alex", "Peppe"],
-"cognomi": ["Rosso", "Sesto", "Bianchi", "Simonetti", "Decaro"]
-}
+    "numero_studenti": 30,
+    "voto_min": 2,
+    "voto_max": 10,
+    "materie": ["Matematica", "Informatica", "Italiano"],
+    "classe": "5A",
+    "nomi": ["Andrea", "Stefano", "Olga", "Sara", "Chiara", "Marco", "Michele", "Alessandro", "Matteo", "Tommaso", "Luigi", "Mario", "Alex", "Peppe", "Carlo", "Ivan"],
+    "cognomi": ["Rosso", "Sesto", "Bianchi", "Simonetti", "Decaro", "Vanetti", "Sacco", "Timo", "Ronco", "Micheli", "Fulgori", "Gallo", "Rossi", "Verdi", "Neri", "Ferrari"]
+    }
+    

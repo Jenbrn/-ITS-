@@ -1,4 +1,4 @@
-from lettura_validazione import studenti_validi, lettura_csv
+from Altro.stundent_pipeline.lettura_validazione import studenti_validi, lettura_csv
 import json
 
 dati = studenti_validi

@@ -1,5 +1,5 @@
 from esercitaz import config, genera_studenti
-import csv
+import csv, shutil
 from datetime import datetime
 from pathlib import Path
 
@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent
 INPUT_DIR = BASE_DIR / "data" / "input"
 
 # step 2
-studenti = genera_studenti(config)
+# studenti = genera_studenti(config)
 
 def estrai(studenti):
     studenti_new = []
@@ -29,7 +29,7 @@ def estrai(studenti):
     return studenti_new
 
 #step 3
-def main():
+def main(studenti):
     dat = estrai(studenti)
 
     #genero timestamp
@@ -37,12 +37,16 @@ def main():
     INPUT_DIR.mkdir(parents=True, exist_ok=True)
     #percorso
     filepath = Path("data/input") / f"studenti_{timestamp}.csv"
+    filepath_backup = Path("data/backup") /f"backup_studenti.csv"
     with open(filepath, "w", newline="", encoding="utf-8") as f:
 
         fieldnames = ["id", "nome","cognome","data_nascita","email","Matematica","Informatica","Italiano"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(dat)
+    #backup
+    shutil.copy(filepath, filepath_backup)
+    
 
 if __name__ == '__main__':
     main()

@@ -1,0 +1,40 @@
+
+========================================
+REPORT STUDENTI
+========================================
+Classe:              5A
+Data generazione:    20260426
+Studenti totali:     30
+Studenti validi:     30
+
+========================================
+TOP 5 STUDENTI
+========================================
+Pos   Nome                 Email                          Media    Mat    Inf    Ita   
+1     Peppe                peppe.timo@scuola.it           8.67     9      10     7     
+2     Mario                mario.sesto@scuola.it          8        5      10     9     
+3     Carlo                carlo.ronco@scuola.it          7.67     10     4      9     
+4     Tommaso              tommaso.ronco@scuola.it        7        9      3      9     
+5     Michele              michele.gallo@scuola.it        6.67     4      6      10    
+
+========================================
+STATISTICHE PER MATERIA
+========================================
+Matematica:
+  Media:     5.5
+  Mediana:   5.0
+  Min - Max: 2 - 10
+  StDev:     2.8
+
+Informatica:
+  Media:     6.1
+  Mediana:   6.0
+  Min - Max: 2 - 10
+  StDev:     2.5
+
+Italiano:
+  Media:     5.2
+  Mediana:   5.0
+  Min - Max: 2 - 10
+  StDev:     2.3
+

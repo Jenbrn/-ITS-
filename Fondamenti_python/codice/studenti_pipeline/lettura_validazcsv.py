@@ -3,7 +3,6 @@ from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent
-INPUT_DIR = BASE_DIR / "data" / "input"
 
 
 def lettura_csv(file_csv) -> list:
@@ -11,8 +10,6 @@ def lettura_csv(file_csv) -> list:
         reader = csv.DictReader(f)
         return list(reader)
 
-csv_file = sorted(INPUT_DIR.glob("studenti_*.csv"))[-1]   
-studenti = lettura_csv(csv_file)
 
 #Funzioni per il controllo
 
@@ -48,6 +45,11 @@ def valida_data(studenti):
     return valide, scartate
 
 def main():
+    INPUT_DIR = BASE_DIR / "data" / "input"
+    
+    csv_file = sorted(INPUT_DIR.glob("studenti_*.csv"))[-1]   
+    studenti = lettura_csv(csv_file)
+    
     mail_ok, mail_err = valida_mail(studenti)
     voti_ok, voti_err = valida_voto(mail_ok)
     date_ok, date_err = valida_data(voti_ok)
@@ -58,12 +60,13 @@ def main():
         
         for errori, count in conteggio.items():
             print(f"{errori}: {count}")
-    return date_ok
+    studenti_validi = date_ok
+    return studenti_validi
 
-studenti_validi = main() 
+# studenti_validi = main() 
 
 
-if __name__ == '__main__':
-    Path("convert_studval_json.py").touch()
-    main()
+# if __name__ == '__main__':
+#     Path("convert_studval_json.py").touch()
+#     main()
 
