@@ -30,16 +30,16 @@ def analisi(lista: list) -> str:
         return "Nessuna tupla trovata"
     else:
         return "Hai inserito una lista vuota"
-         
+    
 def controllo(lis: list) -> bool:
     """
     Funzione: controlla se la lista non è vuota.
     
     Args: lis: list
-      Lista da controllare.
+        Lista da controllare.
     
     Returns: bool
-       False se vuota True se non lo è
+        False se vuota True se non lo è
     """
     if len(lis) == 0:
         return False
@@ -48,7 +48,7 @@ def controllo(lis: list) -> bool:
 
 def main():
     print(F"{analisi(lista)}")
-   
+    
 
 if __name__ == '__main__':
     main()

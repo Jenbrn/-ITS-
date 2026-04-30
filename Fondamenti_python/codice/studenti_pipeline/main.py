@@ -35,7 +35,7 @@ def main():
         studenti_validi = validaz_csv_main()
         
         risultati, top_5 = elabora_studenti(studenti_validi)
-      
+        
         statistiche_materie = calcoli_statistiche(studenti_validi)
         print(f"DEBUG: statistiche_materie = {statistiche_materie}")
         salva_rep(cfg, studenti_validi, top_5, statistiche_materie)

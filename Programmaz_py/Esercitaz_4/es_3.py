@@ -29,12 +29,13 @@ def inserimento1() -> tuple:
         while lista_da_inserire != 'miao':
             lista.append(lista_da_inserire)
             lista_da_inserire = validazione(input("Crea 3 liste da inserire in una tupla( miao per passare alla lista dopo): ").lower())
+            # while len(lista) == 0:
+            #     print("Non puoi lasciare la lista vuota")
 
         print(F"Lista {counter} inserita: {lista}")
         tupla += (lista, )
-
     return tupla
-    
+
     
 def inserimento2() -> list:
     """
@@ -66,6 +67,14 @@ def validazione(a) -> str:
         a = input("non puoi lasciare l'input vuoto: ")
     else:
         return a
+#filter*
+
+def liste_vuote(tupla):
+    
+    for elemento in tupla:
+        if not isinstance(elemento, list) or len(elemento) == 0:
+            return False
+    return True
 
 #Funzione principale con output
 def main() -> tuple:
@@ -73,14 +82,17 @@ def main() -> tuple:
     Sostituisce gli ultimi elementi di ogni lista nella tupla.
     """
     tupla = inserimento1()
-    sost1, sost2, sost3 = inserimento2()
+    verifica = liste_vuote(tupla)
+    if verifica == False:
+        print("Impossibile avere liste vuote nella tupla ")
+    else:    
+        sost1, sost2, sost3 = inserimento2()
+        for lista in tupla:
 
-    tupla[0][-1] = sost1
-    tupla[1][-1] = sost2
-    tupla[2][-1] = sost3
-    print(tupla)
-    return tupla
-    
+            tupla[0][-1] = sost1
+            tupla[1][-1] = sost2
+            tupla[2][-1] = sost3
+        print(tupla)
 
 if __name__ == '__main__':
     main()

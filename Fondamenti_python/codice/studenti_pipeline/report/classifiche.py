@@ -16,7 +16,7 @@ Risultato = namedtuple('Risultato', ['nome', 'email', 'media', 'matematica', 'in
 
 
 def calcola_media_studenti(studenti):
-   
+    
     risultati = []
     
     for studente in studenti:
