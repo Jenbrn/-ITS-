@@ -20,4 +20,26 @@ with open('musica.json', 'r', encoding= "utf8") as f:
 
         estrazione.append(f"INSERT INTO jenic (titolo, artista, album, genere, certificazione, anno, durata_secondi) VALUES ('{titolo}', '{artista}', '{album}', '{genere}', '{certificazione}', '{anno}', '{durata_secondi});")
 
-        
+query = """
+USE its2026;
+
+drop table if exist jenic;
+
+create table jenic (
+    canzone_id int primary key auto_increment,
+    titolo varchar(200),
+    artista varchar(120),
+    album varchar(100),
+    genere varchar(80),
+    certificazione varchar(50),
+    anno int,
+    durata_secondi int
+);
+
+"""
+with open('musica.sql', 'w', encoding='utf-8') as f:
+    f.write(query)
+
+    for estratto in estrazione:
+        f.write(estratto)
+        f.write('\n')
