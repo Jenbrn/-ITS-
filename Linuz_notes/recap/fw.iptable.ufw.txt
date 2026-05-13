@@ -32,3 +32,84 @@ curva       ripida                  bassa
 uso         server+, script,router  server applicativi easy
 persist     manuale                 auto
 leggibile   no                      si
+
+crontab
+* .sh -> estensione shell scritp - comandi base da eseguire in sequenza
+* du -> comando x calcolo spazio occupato da file o dir
+* --exclude -> esclude literally
+-strumento di scheduling per esecuzione automatica di progr
+* giorno sett (0dom-6sab)
+*Mese (1-12
+*giono (1-31)
+*ora (0-23)
+*minuto (0-59)
+-0 7 * * * du -sh --exclude=proc --exclude=run /* > /var/log/du/output-du-$(date '+%Y-%m-%d').log
+*Comando: esegue un controllo dello spazio disco (du) alle 7:00 AM ogni giorno e salva il risultato in un file di log con data nel nome.
+
+- crontab -e -> arpire editor
+- crontab -l -> visualizza le entry attuali
+- crontab -r -> elimina le entry
+
+-htop / top -> processi in uso
+- uptime -> carico macchina
+- vmstat / free -m -> consumo memoria
+- iostat -> utilizzo cpu e io
+- pstree -> albero processi
+- kill -> uccide processo
+- kill -9 -> pure i figli
+- df -h -> spazio disco
+- du -shc/miaodir -> dim files
+- du -shc --exclude=proc -- exclude=run/* -> spazio occupato su disco
+- netstat - tulpn -> porte utilizzate
+
+#!/bin/bash -> shebang : questo è un file script bash, eseguilo con interprete bash
+#! = "shebang" (simboli speciali che indicano un interprete)
+/bin/bash = percorso dell'interprete bash
+
+-------------------------
+* comendo ; comando -> il secondo gira indipendentemente dall'esito del primo
+* && -> il sec gira solo se il primo non fallisce (0)
+* || -> il sec parte se il primo fallisce (!=0)
+
+sono concatenabili
+es : ping -c1 8.8.8.8 &>/dev/null && echo 'Rete OK' || echo 'Rete KO'
+
+valori ourput
+
+0 -> success | 1 -> err generico | 2 -> uso errato comando | 127 -> comando not found | 130 -> interrotto ctrl c
+
+$? ->  assegno variabile
+
+----------------------------------------
+- cmd & -> processi in background 
+* avvia pricessi in background liberando terminale, ricevi [1]-> num job [4821]-> pid
+
+- jobs -> lista job sessione
+[1]+ Running cmq &
+[2]- Stopped via file.txt
+
+*numeri job | + corrente |- stoppato 
+
+- fg 1% -> porta in foreground- porta job 1 in fg(primo piano)|job riprende e occupa terminale|puoi interagirci
+
+* puoi usare 2% -> secondo
+
+- bg 1% -> job in sospeso -> lo fa girare ma in background
+
+*fg → lo riporti in primo piano (occupa il terminale)
+*bg → lo fai girare dietro (terminale libero)
+
+- ctrl z -> sospendi fg | sospendi proc in primo piano | si libera il terminale mettendo il proc in pausa
+
+*Stai editando un file e devi controllare qualcosa velocemente
+*Un comando sta impiegando troppo tempo e vuoi sospenderlo
+
+- kill %1 -> sigterm (gentile)
+- kill -9 %1 sigkill (forzato immediato)
+- kill -15 %1 -> == kill %1
+
+- nohup -> processi persistenti -> ignora il sighup e se si chiude il terminLW IL COMANDO CONTINUA A GIRARE 
+
+- sighup -> SIGnal Hang UP: segnale inviato dal kernel quando sess terminale viene chiusa interrompendo un process
+
+-----------nETWORKING--------------
