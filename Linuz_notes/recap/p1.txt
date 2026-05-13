@@ -77,3 +77,13 @@
 - apt install 'esempio' -> installa pacchetti
 - apt upgrade -> danger!! effettua upgrade di pacchetti disponibili
 
+-----------------porte--------------
+22 - tcp - ssh
+25 - tcp - smtp
+53 - tcp/udp - dNS
+80 - tcp - http
+443 - tcp - https
+3306 - tcp - mariadb/mysql
+5432 - tcp - postgresql
+
+

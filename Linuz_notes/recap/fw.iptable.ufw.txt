@@ -1,0 +1,34 @@
+---------------IPTABLES-------
+- drop -> scartato silenziosamente
+- reject -> rifiutato con mex errore
+ - -L(lista tutte le regole) -v(verboso) -n(formato num)
+ -sudo iptables -A INPUT|OUTPUT|FORWARD -p tcp|udp|icmp --dport porta -j ACCEPT|DROP|REJECT
+
+ opzioni:
+ * -A append 
+ * -I insert(aggiunge in cima)
+ * -D delete
+ * -P policy
+ * -F flush
+
+ - sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+ *sempre necessarie
+- sudo iptables -A INPUT -i lo -j ACCEPT
+- sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+- sudo iptables -P INPUT DROP
+
+--------UFW---------
+- ENABLE | DISABLE | RESET
+- sudo ufw default deny incoming
+- sudo ufw default allow outgoing
+- sudo ufw status numbered
+- sudo ufw delete 3
+- sudo ufw delete allow 80/tcp
+- sudo ufw logging on
+
+            ip                      ufw
+controllo   granulare               semplificato
+curva       ripida                  bassa
+uso         server+, script,router  server applicativi easy
+persist     manuale                 auto
+leggibile   no                      si
