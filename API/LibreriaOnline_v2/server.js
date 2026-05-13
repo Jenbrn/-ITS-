@@ -4,7 +4,7 @@ import sqlite3 from 'sqlite3';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './doc/swagger.json' with {type: 'json'};
 import { CREATE_LIBRI_TABLE } from './database/script_libri.js';
-import libriRouterouter from './routes/libriRouter.js';
+import libriRouter from './routes/libriRouter.js';
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,7 +14,7 @@ const BASE_PATH = "/api/v2";
 export const db = new sqlite3.Database("./database/libreria.db");
 
 //inizializazione rotte
-//app.use(`${BASE_PATH}/libri`, libriRouter);
+app.use(`${BASE_PATH}/libri`, libriRouter);
 
 // attivo il listener dell'appl sulla porta 3000
 app.listen(PORT, () => {
