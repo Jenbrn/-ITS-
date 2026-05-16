@@ -18,7 +18,7 @@ with open('musica.json', 'r', encoding= "utf8") as f:
         durata_secondi = musica.get('durata_secondi')
         durata_secondi = int(durata_secondi)
 
-        estrazione.append(f"INSERT INTO jenic (titolo, artista, album, genere, certificazione, anno, durata_secondi) VALUES ('{titolo}', '{artista}', '{album}', '{genere}', '{certificazione}', '{anno}', '{durata_secondi});")
+        estrazione.append(f"INSERT INTO jenic (titolo, artista, album, genere, certificazione, anno, durata_secondi) VALUES ('{titolo}', '{artista}', '{album}', '{genere}', '{certificazione}', {anno}, {durata_secondi});")
 
 query = """
 USE its2026;
