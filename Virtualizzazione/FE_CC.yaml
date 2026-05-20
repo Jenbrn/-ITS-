@@ -1,0 +1,170 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  LAB sicuro (senza IAM, senza ALB, senza RDS): una EC2 pubblica con Flask + SQLite.
+  Form: Nome/Cognome/PIN. DB popolabile manualmente via /admin.
+  Restituisce SOLO numero mascherato (**** **** **** 1234) + token, NON numeri carta reali.
+
+Parameters:
+  VpcId:
+    Type: AWS::EC2::VPC::Id
+    Description: VPC esistente (tipicamente la default VPC del lab)
+
+  SubnetId:
+    Type: AWS::EC2::Subnet::Id
+    Description: Subnet pubblica esistente nella VPC (con route verso Internet Gateway)
+
+  KeyName:
+    Type: String
+    Default: ''
+    Description: (Opzionale) Nome KeyPair per SSH (lascia vuoto se non serve)
+
+Conditions:
+  HasKey: !Not [!Equals [!Ref KeyName, '']]
+
+Resources:
+  WebSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow HTTP (80) from Internet
+      VpcId: !Ref VpcId
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+      SecurityGroupEgress:
+        - IpProtocol: -1
+          CidrIp: 0.0.0.0/0
+
+  WebDbInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Sub '{{resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-6.1-x86_64}}'
+      InstanceType: t3.micro
+      SubnetId: !Ref SubnetId
+      SecurityGroupIds:
+        - !Ref WebSecurityGroup
+      KeyName: !If [HasKey, !Ref KeyName, !Ref 'AWS::NoValue']
+      Tags:
+        - Key: Name
+          Value: lab-web-db-single-ec2
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          set -euxo pipefail
+          dnf -y update
+          dnf -y install python3 python3-pip
+          pip3 install --no-cache-dir flask
+
+          mkdir -p /opt/labapp
+          cat > /opt/labapp/app.py <<'PY'
+          import sqlite3
+          from flask import Flask, request
+
+          DB_PATH = "/opt/labapp/data.sqlite"
+          app = Flask(__name__)
+
+          def init_db():
+              con = sqlite3.connect(DB_PATH)
+              cur = con.cursor()
+              cur.execute("""
+              CREATE TABLE IF NOT EXISTS records (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                first TEXT NOT NULL,
+                last  TEXT NOT NULL,
+                pin   TEXT NOT NULL,
+                token TEXT NOT NULL,
+                last4 TEXT NOT NULL
+              );
+              """)
+              con.commit()
+              con.close()
+
+          @app.get("/")
+          def form():
+              return """
+              <html><body>
+              <h2>LAB: Richiesta carta (restituisce SOLO numero mascherato)</h2>
+              <form method="POST" action="/submit">
+                Nome: <input name="first" required><br><br>
+                Cognome: <input name="last" required><br><br>
+                PIN: <input name="pin" required><br><br>
+                <button type="submit">Invia</button>
+              </form>
+              <p><a href="/admin">Admin DB (popola manualmente)</a></p>
+              </body></html>
+              """
+
+          @app.post("/submit")
+          def submit():
+              first = request.form.get("first","").strip()
+              last  = request.form.get("last","").strip()
+              pin   = request.form.get("pin","").strip()
+
+              con = sqlite3.connect(DB_PATH)
+              cur = con.cursor()
+              cur.execute("SELECT token,last4 FROM records WHERE first=? AND last=? AND pin=? ORDER BY id ASC LIMIT 1",
+                          (first,last,pin))
+              row = cur.fetchone()
+              con.close()
+
+              if not row:
+                  return f"Errore: utente/pin non trovato (LAB).", 404
+
+              token, last4 = row
+              masked = f"**** **** **** {last4}"
+              return f"Utente: {first} {last}<br>Numero carta: {masked}<br>Token: {token}<br><small>LAB: mascherato</small>"
+
+          @app.get("/admin")
+          def admin_form():
+              return """
+              <html><body>
+              <h2>Admin DB (LAB)</h2>
+              <form method="POST" action="/admin/add">
+                Nome: <input name="first" required><br><br>
+                Cognome: <input name="last" required><br><br>
+                PIN: <input name="pin" required><br><br>
+                Token (es. TKN123): <input name="token" required><br><br>
+                Ultime 4 cifre (es. 1234): <input name="last4" required><br><br>
+                <button type="submit">Inserisci</button>
+              </form>
+              <p>Nota: questo LAB NON gestisce numeri carta reali, solo last4 + token.</p>
+              <p><a href="/">Home</a></p>
+              </body></html>
+              """
+
+          @app.post("/admin/add")
+          def admin_add():
+              first = request.form.get("first","").strip()
+              last  = request.form.get("last","").strip()
+              pin   = request.form.get("pin","").strip()
+              token = request.form.get("token","").strip()
+              last4 = request.form.get("last4","").strip()
+
+              con = sqlite3.connect(DB_PATH)
+              cur = con.cursor()
+              cur.execute("INSERT INTO records(first,last,pin,token,last4) VALUES (?,?,?,?,?)",
+                          (first,last,pin,token,last4))
+              con.commit()
+              con.close()
+              return f"Inserito: {first} {last} (PIN={pin}) token={token} last4={last4}<br><a href='/admin'>indietro</a>"
+
+          if __name__ == "__main__":
+              init_db()
+              app.run(host="0.0.0.0", port=80)
+          PY
+
+          nohup python3 /opt/labapp/app.py >/var/log/labapp.log 2>&1 &
+
+Outputs:
+  InstanceFQDN:
+    Description: FQDN pubblico EC2 (usa questo come FQDN)
+    Value: !GetAtt WebDbInstance.PublicDnsName
+
+  WebAppUrl:
+    Description: URL app (form)
+    Value: !Sub 'http://${WebDbInstance.PublicDnsName}/'
+
+  DbAdminUrl:
+    Description: URL admin per popolare manualmente il DB
+    Value: !Sub 'http://${WebDbInstance.PublicDnsName}/admin'
